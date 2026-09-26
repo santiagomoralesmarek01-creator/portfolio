@@ -146,7 +146,8 @@ ul { margin: 0; padding: 0; list-style: none; }
   line-height: .9;
   letter-spacing: -0.02em;
 }
-.hero-name em { font-style: italic; color: var(--hi); }
+.hero-name em { display: block; font-style: italic; color: var(--hi); font-size: 1.55em; line-height: .85; margin-left: -.04em; }
+.hero-first { display: block; font-size: .5em; color: var(--ink-soft); letter-spacing: -.01em; margin-bottom: .1em; }
 .hero-tagline {
   margin-top: 28px; max-width: 34ch;
   font-size: clamp(1.05rem, 3.6vw, 1.35rem); color: var(--ink-soft);
