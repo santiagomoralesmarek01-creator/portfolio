@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Santiago Morales Marek — Portfolio</title>
+  <meta name="description" content="Portfolio de Santiago Morales Marek: estudiante de Ingeniería en IA, desarrollo web y proyectos con IA integrada." />
+  <meta name="theme-color" content="#f3efe6" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#14130f" media="(prefers-color-scheme: dark)" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip" href="#proyectos">Saltar a proyectos</a>
+
+  <header class="topbar">
+    <a class="mark" href="#top" aria-label="Inicio">SMM<span>.</span></a>
+    <nav aria-label="Principal">
+      <a href="#proyectos">Proyectos</a>
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <p class="eyebrow"><span class="dot" aria-hidden="true"></span> Portfolio · 2026</p>
+      <h1 class="hero-name">
+        Santiago<br />
+        <em>Morales</em> Marek
+      </h1>
+      <p class="hero-tagline">
+        Estudiante de Ingeniería en IA
+        <span class="sep" aria-hidden="true">/</span>
+        Desarrollo web y proyectos con IA integrada
+      </p>
+
+      <ul class="socials" aria-label="Redes">
+        <!-- TODO: completar con tus links reales -->
+        <li>
+          <a href="https://github.com/santiagomoralesmarek01-creator" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.4-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>
+            GitHub
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/TU-USUARIO" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
+            LinkedIn
+          </a>
+        </li>
+        <li>
+          <a href="mailto:TU-EMAIL@ejemplo.com">
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="m3 6 9 7 9-7"/></svg>
+            Email
+          </a>
+        </li>
+      </ul>
+
+      <a class="scroll-cue" href="#proyectos">
+        Ver proyectos
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+      </a>
+    </section>
+
+    <!-- PROYECTOS -->
+    <section id="proyectos" class="section">
+      <div class="section-head">
+        <span class="section-num">01</span>
+        <h2>Proyectos</h2>
+        <p class="section-note">Sitios y apps que diseñé y desarrollé. Todos están online.</p>
+      </div>
+
+      <!-- Las cards se generan desde la lista PROJECTS en main.js -->
+      <div class="grid" id="project-grid"></div>
+      <noscript><p>Activá JavaScript para ver la lista de proyectos.</p></noscript>
+    </section>
+
+    <!-- SOBRE MÍ -->
+    <section id="sobre-mi" class="section about">
+      <div class="section-head">
+        <span class="section-num">02</span>
+        <h2>Sobre mí</h2>
+      </div>
+      <div class="about-body">
+        <p class="about-lead">
+          Estudio <em>Ingeniería en Inteligencia Artificial</em> y me gusta construir cosas que la gente
+          realmente use: desde una web para un camping hasta una app para ordenar las finanzas personales.
+        </p>
+        <p>
+          Me interesa especialmente el desarrollo de proyectos con IA integrada: llevar modelos y
+          automatizaciones a productos concretos, con una interfaz cuidada.
+        </p>
+        <ul class="chips" aria-label="Herramientas">
+          <li>Python · básico/intermedio</li>
+          <li>JavaScript</li>
+          <li>React</li>
+          <li>HTML &amp; CSS</li>
+          <li>Supabase</li>
+          <li>PWA</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="contacto" class="footer">
+    <div class="footer-cta">
+      <p class="footer-kicker">¿Tenés un proyecto o una idea?</p>
+      <a class="footer-mail" href="mailto:TU-EMAIL@ejemplo.com">Escribime <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> Santiago Morales Marek</span>
+      <span>Hecho a mano con HTML, CSS y JS</span>
+      <a href="#top">Volver arriba ↑</a>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
