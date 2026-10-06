@@ -7,7 +7,7 @@ const PROJECTS = [
     description:
       "Sitio de reseñas de cine y series con catálogo, reseñas, artículos y ranking. Hecho para la materia Laboratorio de Medios Gráficos.",
     url: "https://cinelab-peach.vercel.app/#/",
-    stack: ["React", "Vercel"],
+    stack: ["JavaScript", "Supabase", "Vercel"],
     accent: "cine",
     art: "cine",
   },
@@ -37,7 +37,7 @@ const PROJECTS = [
     description:
       "Recetas caseras y del mundo, con modo cocina para ir tildando ingredientes y pasos, y filtro por lo que tenés en la heladera.",
     url: "https://recetario-n3sscylrx-marekk1.vercel.app/",
-    stack: ["JavaScript", "Vercel"],
+    stack: ["JavaScript", "Supabase", "Vercel"],
     accent: "food",
     art: "food",
   },
