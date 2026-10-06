@@ -11,7 +11,8 @@ Sitio estático (HTML + CSS + JS, sin build ni backend) con mis proyectos web.
 ## Editar
 
 - **Agregar/cambiar un proyecto:** editá el array `PROJECTS` en `main.js`.
-- **Links de redes:** buscá `TU-USUARIO` (LinkedIn) y `TU-EMAIL` en `index.html` y reemplazalos.
+- **Links de redes:** están en `index.html` (sección `socials` y footer).
+- **Vista previa al compartir:** `og.png` (1200×630). Cuando tengas el dominio fijo, poné la URL absoluta en `og:image` dentro de `index.html`.
 
 ## Ver en local
 
