@@ -9,6 +9,7 @@
 
   /* Acento de cada proyecto (sale de su propia marca) */
   --amano: #c8401f;
+  --miti: #b8236a;
   --carta: #2e5e4e;
   --colchon: #9a6f43;
 
@@ -32,6 +33,7 @@
     --line: #34312a;
     --hi: #f0764f;
     --amano: #f0764f;
+    --miti: #ff7ab8;
     --carta: #7bbfa5;
     --colchon: #d2a878;
     --sombra: 0 1px 2px rgb(0 0 0 / .3), 0 18px 50px -20px rgb(0 0 0 / .7);
@@ -47,6 +49,7 @@
   --line: #34312a;
   --hi: #f0764f;
   --amano: #f0764f;
+  --miti: #ff7ab8;
   --carta: #7bbfa5;
   --colchon: #d2a878;
   --sombra: 0 1px 2px rgb(0 0 0 / .3), 0 18px 50px -20px rgb(0 0 0 / .7);
