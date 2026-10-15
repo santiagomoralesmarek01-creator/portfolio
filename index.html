@@ -4,13 +4,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Santiago Morales Marek — Portfolio</title>
-  <meta name="description" content="Portfolio de Santiago Morales Marek: estudiante de Ingeniería en IA, desarrollo web y proyectos con IA integrada." />
-  <meta name="theme-color" content="#f3efe6" media="(prefers-color-scheme: light)" />
-  <meta name="theme-color" content="#14130f" media="(prefers-color-scheme: dark)" />
+  <meta name="description" content="Portfolio de Santiago Morales Marek, estudiante de Ingeniería en IA: A Mano, Carta Local y Abajo del Colchón, productos web hechos de punta a punta." />
+  <meta name="theme-color" content="#f4f0e8" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#151410" media="(prefers-color-scheme: dark)" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="es_AR" />
   <meta property="og:title" content="Santiago Morales Marek — Portfolio" />
-  <meta property="og:description" content="Estudiante de Ingeniería en IA. Desarrollo web y proyectos con IA integrada." />
+  <meta property="og:description" content="Estudiante de Ingeniería en IA. Productos web hechos de punta a punta: diseño, código y puesta en marcha." />
   <!-- Cuando tengas el dominio fijo, poné la URL absoluta: https://TU-DOMINIO/og.png -->
   <meta property="og:image" content="og.png" />
   <meta property="og:image:width" content="1200" />
@@ -21,111 +21,218 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <script>
+    // Aplicar el tema guardado antes de pintar, para que no parpadee.
+    try {
+      const t = localStorage.getItem("tema");
+      if (t === "claro" || t === "oscuro") document.documentElement.dataset.tema = t;
+    } catch {}
+  </script>
 </head>
 <body>
-  <a class="skip" href="#proyectos">Saltar a proyectos</a>
+  <a class="skip" href="#trabajos">Saltar a los proyectos</a>
 
   <header class="topbar">
-    <a class="mark" href="#top" aria-label="MrK — inicio">Mr<em>K</em><span>.</span></a>
-    <nav aria-label="Principal">
-      <a href="#proyectos">Proyectos</a>
-      <a href="#sobre-mi">Sobre mí</a>
-      <a href="#contacto">Contacto</a>
-    </nav>
+    <div class="topbar-inner">
+      <a class="mark" href="#top" aria-label="MrK, volver al inicio">Mr<em>K</em><span>.</span></a>
+      <nav aria-label="Principal">
+        <a href="#trabajos">Proyectos</a>
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <button class="tema" type="button" aria-label="Cambiar entre modo claro y oscuro">
+        <svg class="tema-sol" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="tema-luna" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5Z"/></svg>
+      </button>
+    </div>
   </header>
 
   <main id="top">
-    <!-- HERO -->
+    <!-- PORTADA -->
     <section class="hero">
-      <span class="hero-watermark" aria-hidden="true">MrK</span>
-      <p class="eyebrow"><span class="dot" aria-hidden="true"></span> MrK · Portfolio · 2026</p>
-      <h1 class="hero-name">
-        <span class="hero-first">Santiago Morales</span>
-        <em>Marek</em>
-      </h1>
-      <p class="hero-tagline">
-        Estudiante de Ingeniería en IA
-        <span class="sep" aria-hidden="true">/</span>
-        Desarrollo web y proyectos con IA integrada
-      </p>
-
-      <ul class="socials" aria-label="Redes">
-        <li>
-          <a href="https://github.com/santiagomoralesmarek01-creator" target="_blank" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.4-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>
-            GitHub
-          </a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/in/santiago-morales-marek/" target="_blank" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
-            LinkedIn
-          </a>
-        </li>
-        <li>
-          <a href="mailto:santiagomoralesmarek01@gmail.com">
-            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="m3 6 9 7 9-7"/></svg>
-            Email
-          </a>
-        </li>
-      </ul>
-
-      <a class="scroll-cue" href="#proyectos">
-        Ver proyectos
-        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
-      </a>
+      <p class="eyebrow"><span>Portfolio</span><span>Buenos Aires</span><span id="year-hero">2026</span></p>
+      <h1 class="hero-name">Santiago Morales <em>Marek</em></h1>
+      <div class="hero-grid">
+        <p class="hero-lead">
+          Estudio <em>Ingeniería en Inteligencia Artificial</em> y hago productos web de punta a punta:
+          los pienso, los diseño, los programo y los pongo online para que los use gente real.
+        </p>
+        <ol class="indice" aria-label="Proyectos">
+          <li><a href="#a-mano"><span class="indice-num">01</span><span class="indice-nombre">A Mano</span><span class="indice-tipo">Recetas con IA</span></a></li>
+          <li><a href="#carta-local"><span class="indice-num">02</span><span class="indice-nombre">Carta Local</span><span class="indice-tipo">Menú digital y pedidos</span></a></li>
+          <li><a href="#abajo-del-colchon"><span class="indice-num">03</span><span class="indice-nombre">Abajo del Colchón</span><span class="indice-tipo">Finanzas personales</span></a></li>
+        </ol>
+      </div>
     </section>
 
     <!-- PROYECTOS -->
-    <section id="proyectos" class="section">
-      <div class="section-head">
-        <span class="section-num">01</span>
-        <h2>Proyectos</h2>
-        <p class="section-note">Sitios y apps que diseñé y desarrollé. Todos están online.</p>
-      </div>
+    <div id="trabajos">
 
-      <!-- Las cards se generan desde la lista PROJECTS en main.js -->
-      <div class="grid" id="project-grid"></div>
-      <noscript><p>Activá JavaScript para ver la lista de proyectos.</p></noscript>
-    </section>
+      <!-- 01 · A MANO -->
+      <article class="caso" id="a-mano" style="--acento: var(--amano)">
+        <header class="caso-head">
+          <p class="caso-meta"><span class="caso-num">01</span><span>Producto propio</span><span>2026</span></p>
+          <h2 class="caso-titulo">A Mano</h2>
+          <p class="caso-bajada">Cocina latinoamericana que se adapta a lo que tenés en la heladera, a tu país y a tu nivel. <em>Con lo que hay, alcanza.</em></p>
+        </header>
+
+        <figure class="vitrina">
+          <div class="navegador">
+            <div class="navegador-barra" aria-hidden="true"><i></i><i></i><i></i><span>amanorecetas.com.ar</span></div>
+            <img src="img/amano.webp" width="1600" height="1000" loading="lazy" alt="Inicio de A Mano: buscador de recetas, la pregunta “¿Qué hay a mano hoy?” y la receta del momento." />
+          </div>
+          <div class="telefono">
+            <img src="img/amano-movil.webp" width="600" height="1299" loading="lazy" alt="A Mano en el celular." />
+          </div>
+        </figure>
+
+        <div class="caso-cuerpo">
+          <dl class="cifras">
+            <div><dt>Recetas en español</dt><dd>800+</dd></div>
+            <div><dt>Países</dt><dd>73</dd></div>
+            <div><dt>Medallas</dt><dd>21</dd></div>
+          </dl>
+          <div class="caso-texto">
+            <p>Empezó como un recetario y se convirtió en un producto con marca propia, dominio y comunidad. Lo más interesante está en los detalles:</p>
+            <ul class="lista">
+              <li><strong>Manitas, un asistente de cocina con IA</strong> (Google Gemini) que conoce la receta abierta y responde “no tengo…”, “somos 2” o “sin horno” con reemplazos. Corre en una función del servidor, así la clave nunca llega al navegador, y tiene límite diario por persona.</li>
+              <li><strong>Catálogo traducido:</strong> las 791 recetas de TheMealDB pasadas al español con un script propio, más las de la casa y las que sube la comunidad.</li>
+              <li><strong>Modo cocina</strong> para ir tildando ingredientes y pasos, con temporizadores que salen solos de frases como “hornear 20 minutos”.</li>
+              <li><strong>Cuentas y recetas propias</strong> con foto (se achica en el celular antes de subirla), juegos diarios, medallas y un torneo con premio.</li>
+              <li><strong>Publicación automática en Instagram</strong> a partir de un calendario de contenido.</li>
+            </ul>
+            <ul class="stack" aria-label="Tecnologías">
+              <li>JavaScript sin build</li><li>Supabase</li><li>Vercel Functions</li><li>Gemini API</li><li>Python</li>
+            </ul>
+            <p class="enlaces">
+              <a class="boton" href="https://amanorecetas.com.ar" target="_blank" rel="noopener noreferrer">Ver el sitio <span aria-hidden="true">↗</span></a>
+              <a class="enlace" href="https://github.com/santiagomoralesmarek01-creator/recetario" target="_blank" rel="noopener noreferrer">Código en GitHub</a>
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <!-- 02 · CARTA LOCAL -->
+      <article class="caso" id="carta-local" style="--acento: var(--carta)">
+        <header class="caso-head">
+          <p class="caso-meta"><span class="caso-num">02</span><span>Producto para comercios</span><span>2026</span></p>
+          <h2 class="caso-titulo">Carta Local</h2>
+          <p class="caso-bajada">Web, carta con QR y pedidos por WhatsApp para rotiserías, bares y cafeterías del barrio. <em>Sin comisiones por venta.</em></p>
+        </header>
+
+        <figure class="vitrina">
+          <div class="navegador">
+            <div class="navegador-barra" aria-hidden="true"><i></i><i></i><i></i><span>carta-local-pi.vercel.app</span></div>
+            <img src="img/carta-local.webp" width="1600" height="1000" loading="lazy" alt="Página de Rotisería La Esquina, local de demostración: “Comida casera, lista para llevar”, con una ilustración de una caja de empanadas." />
+          </div>
+          <div class="telefono">
+            <img src="img/carta-local-movil.webp" width="600" height="1299" loading="lazy" alt="La carta de la rotisería en el celular, con empanadas y precios." />
+          </div>
+        </figure>
+
+        <div class="caso-cuerpo">
+          <dl class="cifras">
+            <div><dt>Código nuevo por local</dt><dd>0</dd></div>
+            <div><dt>Mensaje con el pedido</dt><dd>1</dd></div>
+            <div><dt>Carteles QR por hoja A4</dt><dd>4</dd></div>
+          </dl>
+          <div class="caso-texto">
+            <p>Pensado como servicio para comercios chicos: el mismo código sirve a todos los locales, y <strong>cada local es un archivo de datos</strong> con su carta, su marca y sus horarios.</p>
+            <ul class="lista">
+              <li><strong>Pedido por WhatsApp</strong> en un único mensaje ordenado: productos, retiro o envío, forma de pago y total.</li>
+              <li><strong>Panel del dueño</strong> desde el celular: cambiar precios uno por uno o con aumento por porcentaje, marcar agotados, editar horarios y publicar el aviso del día.</li>
+              <li><strong>QR y carteles de mesa</strong> listos para imprimir, en SVG para imprenta o PNG.</li>
+              <li><strong>“Abierto · cierra a las 15”</strong> calculado con la hora argentina, e ilustraciones de línea propias para cada local.</li>
+              <li>La lógica (precios, horarios, pedido) está separada de la interfaz y cubierta con <strong>tests</strong>.</li>
+            </ul>
+            <ul class="stack" aria-label="Tecnologías">
+              <li>TypeScript</li><li>Vite</li><li>Supabase</li><li>Vitest</li><li>Vercel</li>
+            </ul>
+            <p class="enlaces">
+              <a class="boton" href="https://carta-local-pi.vercel.app" target="_blank" rel="noopener noreferrer">Ver la demo <span aria-hidden="true">↗</span></a>
+              <a class="enlace" href="https://carta-local-pi.vercel.app/carta?local=cafe-almendra&amp;plan=carta" target="_blank" rel="noopener noreferrer">Otra demo: Café Almendra</a>
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <!-- 03 · ABAJO DEL COLCHÓN -->
+      <article class="caso" id="abajo-del-colchon" style="--acento: var(--colchon)">
+        <header class="caso-head">
+          <p class="caso-meta"><span class="caso-num">03</span><span>App web instalable</span><span>2026</span></p>
+          <h2 class="caso-titulo">Abajo del Colchón</h2>
+          <p class="caso-bajada">Un gestor de finanzas personales para saber en qué se va la plata, en pesos y en dólares. <em>Instalable en el celular.</em></p>
+        </header>
+
+        <figure class="vitrina">
+          <div class="navegador">
+            <div class="navegador-barra" aria-hidden="true"><i></i><i></i><i></i><span>marekk-delta.vercel.app</span></div>
+            <img src="img/finanzas.webp" width="1600" height="1000" loading="lazy" alt="Vista mensual de Abajo del Colchón con ingresos, gastos y balance en pesos y dólares, pagos recurrentes y metas de ahorro (datos de ejemplo)." />
+          </div>
+          <div class="telefono">
+            <img src="img/finanzas-movil.webp" width="600" height="1299" loading="lazy" alt="Abajo del Colchón en el celular (datos de ejemplo)." />
+          </div>
+          <figcaption>Capturas con datos de ejemplo.</figcaption>
+        </figure>
+
+        <div class="caso-cuerpo">
+          <dl class="cifras">
+            <div><dt>Monedas</dt><dd>2</dd></div>
+            <div><dt>Vistas</dt><dd>4</dd></div>
+            <div><dt>Instalable</dt><dd>PWA</dd></div>
+          </dl>
+          <div class="caso-texto">
+            <p>Una app con cuentas de usuario y los datos de cada persona protegidos en la base. Nació para ordenar mis propios gastos y la fui puliendo con el uso.</p>
+            <ul class="lista">
+              <li><strong>Lee el resumen de la tarjeta en PDF</strong> y carga los gastos solo, incluidas las cuotas.</li>
+              <li><strong>Pesos y dólares</strong> por separado, con balance del mes por moneda y por cuenta (efectivo, banco, billetera virtual).</li>
+              <li><strong>Pagos recurrentes</strong> para tildar cada mes, <strong>metas de ahorro</strong> con progreso y <strong>cuotas pendientes</strong>.</li>
+              <li><strong>Resumen por categorías</strong>, modo oscuro y funcionamiento como app instalada.</li>
+            </ul>
+            <ul class="stack" aria-label="Tecnologías">
+              <li>React</li><li>Vite</li><li>Supabase</li><li>pdf.js</li><li>PWA</li>
+            </ul>
+            <p class="enlaces">
+              <a class="boton" href="https://marekk-delta.vercel.app/" target="_blank" rel="noopener noreferrer">Abrir la app <span aria-hidden="true">↗</span></a>
+              <span class="nota">Pide crear una cuenta.</span>
+            </p>
+          </div>
+        </div>
+      </article>
+    </div>
 
     <!-- SOBRE MÍ -->
-    <section id="sobre-mi" class="section about">
-      <div class="section-head">
-        <span class="section-num">02</span>
-        <h2>Sobre mí</h2>
-      </div>
-      <div class="about-body">
-        <p class="about-lead">
-          Estudio <em>Ingeniería en Inteligencia Artificial</em> y me gusta construir cosas que la gente
-          realmente use: desde una web para un camping hasta una app para ordenar las finanzas personales.
+    <section id="sobre-mi" class="sobre">
+      <h2 class="sobre-titulo">Sobre mí</h2>
+      <div class="sobre-cuerpo">
+        <p class="sobre-lead">
+          Me gusta construir cosas que la gente <em>realmente use</em>. Cada proyecto de esta página
+          resuelve un problema concreto y está online, funcionando.
         </p>
         <p>
-          Me interesa especialmente el desarrollo de proyectos con IA integrada: llevar modelos y
-          automatizaciones a productos concretos, con una interfaz cuidada.
+          Me interesa sobre todo llevar la inteligencia artificial a productos concretos, con una
+          interfaz cuidada: que la IA sume algo útil en el momento justo, como Manitas cuando te
+          falta un ingrediente a mitad de la receta.
         </p>
-        <ul class="chips" aria-label="Herramientas">
-          <li>Python · básico/intermedio</li>
-          <li>JavaScript</li>
-          <li>React</li>
-          <li>HTML &amp; CSS</li>
-          <li>Supabase</li>
-          <li>PWA</li>
+        <ul class="stack stack-grande" aria-label="Herramientas">
+          <li>JavaScript</li><li>TypeScript</li><li>React</li><li>HTML y CSS</li><li>Python</li><li>Supabase</li><li>Vercel</li><li>APIs de IA</li>
         </ul>
       </div>
     </section>
   </main>
 
-  <!-- FOOTER -->
+  <!-- CONTACTO -->
   <footer id="contacto" class="footer">
-    <div class="footer-cta">
-      <p class="footer-kicker">¿Tenés un proyecto o una idea?</p>
-      <a class="footer-mail" href="mailto:santiagomoralesmarek01@gmail.com">Escribime <span aria-hidden="true">→</span></a>
-    </div>
-    <p class="signature" aria-label="by MrK">by Mr<em>K</em></p>
+    <p class="footer-kicker">¿Tenés un proyecto o una idea?</p>
+    <a class="footer-mail" href="mailto:santiagomoralesmarek01@gmail.com">Escribime <span aria-hidden="true">→</span></a>
+    <ul class="redes" aria-label="Redes">
+      <li><a href="https://github.com/santiagomoralesmarek01-creator" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/santiago-morales-marek/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+      <li><a href="mailto:santiagomoralesmarek01@gmail.com">santiagomoralesmarek01@gmail.com</a></li>
+    </ul>
     <div class="footer-bottom">
       <span>© <span id="year">2026</span> Santiago Morales Marek</span>
-      <span>Diseño y código by MrK</span>
+      <span>Diseño y código by Mr<em>K</em></span>
       <a href="#top">Volver arriba ↑</a>
     </div>
   </footer>
