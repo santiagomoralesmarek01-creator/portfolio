@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Santiago Morales Marek — Portfolio</title>
-  <meta name="description" content="Portfolio de Santiago Morales Marek, estudiante de Ingeniería en IA: A Mano, Carta Local y Abajo del Colchón, productos web hechos de punta a punta." />
+  <meta name="description" content="Portfolio de Santiago Morales Marek, estudiante de Ingeniería en IA: A Mano, Miti-Miti, Carta Local y Abajo del Colchón, productos web hechos de punta a punta." />
   <meta name="theme-color" content="#f4f0e8" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#151410" media="(prefers-color-scheme: dark)" />
   <meta property="og:type" content="website" />
@@ -59,8 +59,9 @@
         </p>
         <ol class="indice" aria-label="Proyectos">
           <li><a href="#a-mano"><span class="indice-num">01</span><span class="indice-nombre">A Mano</span><span class="indice-tipo">Recetas con IA</span></a></li>
-          <li><a href="#carta-local"><span class="indice-num">02</span><span class="indice-nombre">Carta Local</span><span class="indice-tipo">Menú digital y pedidos</span></a></li>
-          <li><a href="#abajo-del-colchon"><span class="indice-num">03</span><span class="indice-nombre">Abajo del Colchón</span><span class="indice-tipo">Finanzas personales</span></a></li>
+          <li><a href="#miti-miti"><span class="indice-num">02</span><span class="indice-nombre">Miti-Miti</span><span class="indice-tipo">Gastos compartidos</span></a></li>
+          <li><a href="#carta-local"><span class="indice-num">03</span><span class="indice-nombre">Carta Local</span><span class="indice-tipo">Menú digital y pedidos</span></a></li>
+          <li><a href="#abajo-del-colchon"><span class="indice-num">04</span><span class="indice-nombre">Abajo del Colchón</span><span class="indice-tipo">Finanzas personales</span></a></li>
         </ol>
       </div>
     </section>
@@ -112,10 +113,54 @@
         </div>
       </article>
 
-      <!-- 02 · CARTA LOCAL -->
+      <!-- 02 · MITI-MITI -->
+      <article class="caso" id="miti-miti" style="--acento: var(--miti)">
+        <header class="caso-head">
+          <p class="caso-meta"><span class="caso-num">02</span><span>Producto propio</span><span>2026</span></p>
+          <h2 class="caso-titulo">Miti-Miti</h2>
+          <p class="caso-bajada">Para dividir gastos entre amigos: anotás quién pagó qué y te dice quién le debe a quién, con la menor cantidad de transferencias. <em>Las cuentas claras.</em></p>
+        </header>
+
+        <figure class="vitrina">
+          <div class="navegador">
+            <div class="navegador-barra" aria-hidden="true"><i></i><i></i><i></i><span>miti-miti.com.ar</span></div>
+            <img src="img/miti-miti.webp" width="1600" height="1000" loading="lazy" alt="Portada de Miti-Miti: “Las cuentas claras, miti-miti”, con tarjetas de un viaje a la costa, sus gastos y la transferencia que deja a todos a mano." />
+          </div>
+          <div class="telefono">
+            <img src="img/miti-miti-movil.webp" width="600" height="1299" loading="lazy" alt="Miti-Miti en el celular." />
+          </div>
+        </figure>
+
+        <div class="caso-cuerpo">
+          <dl class="cifras">
+            <div><dt>Transferencias como máximo para n personas</dt><dd>n−1</dd></div>
+            <div><dt>Decimales en los montos: todo en centavos</dt><dd>0</dd></div>
+            <div><dt>Personas simuladas en los tests de permisos</dt><dd>3</dd></div>
+          </dl>
+          <div class="caso-texto">
+            <p>El proyecto donde más cuidé la ingeniería: la plata tiene que cerrar al centavo y cada grupo tiene que ser privado de verdad.</p>
+            <ul class="lista">
+              <li><strong>Algoritmo para saldar:</strong> calcula el saldo neto de cada persona y, en cada paso, quien más debe le paga a quien más le deben. Una prueba con grupos y montos al azar verifica que todos terminen en cero.</li>
+              <li><strong>Dinero en centavos enteros:</strong> los centavos que sobran al dividir se reparten de a uno, así la suma siempre cierra. Entiende montos como se escriben acá: “1.500,50”.</li>
+              <li><strong>Seguridad en la base, no en el front:</strong> todas las tablas con Row Level Security, y unirse o crear grupos pasa por funciones SQL. Tests de permisos que corren en la CI contra un Postgres real.</li>
+              <li><strong>Tiempo real:</strong> si alguien del grupo carga un gasto, el resto lo ve aparecer sin recargar.</li>
+              <li><strong>Sin contraseñas:</strong> se entra con Google o con un link por mail, y a los grupos con un link de invitación que se puede regenerar.</li>
+            </ul>
+            <ul class="stack" aria-label="Tecnologías">
+              <li>React</li><li>TypeScript</li><li>Supabase Realtime</li><li>Postgres RLS</li><li>Vitest</li><li>GitHub Actions</li>
+            </ul>
+            <p class="enlaces">
+              <a class="boton" href="https://miti-miti.com.ar" target="_blank" rel="noopener noreferrer">Ver el sitio <span aria-hidden="true">↗</span></a>
+              <a class="enlace" href="https://github.com/santiagomoralesmarek01-creator/miti-miti" target="_blank" rel="noopener noreferrer">Código en GitHub</a>
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <!-- 03 · CARTA LOCAL -->
       <article class="caso" id="carta-local" style="--acento: var(--carta)">
         <header class="caso-head">
-          <p class="caso-meta"><span class="caso-num">02</span><span>Producto para comercios</span><span>2026</span></p>
+          <p class="caso-meta"><span class="caso-num">03</span><span>Producto para comercios</span><span>2026</span></p>
           <h2 class="caso-titulo">Carta Local</h2>
           <p class="caso-bajada">Web, carta con QR y pedidos por WhatsApp para rotiserías, bares y cafeterías del barrio. <em>Sin comisiones por venta.</em></p>
         </header>
@@ -156,10 +201,10 @@
         </div>
       </article>
 
-      <!-- 03 · ABAJO DEL COLCHÓN -->
+      <!-- 04 · ABAJO DEL COLCHÓN -->
       <article class="caso" id="abajo-del-colchon" style="--acento: var(--colchon)">
         <header class="caso-head">
-          <p class="caso-meta"><span class="caso-num">03</span><span>App web instalable</span><span>2026</span></p>
+          <p class="caso-meta"><span class="caso-num">04</span><span>App web instalable</span><span>2026</span></p>
           <h2 class="caso-titulo">Abajo del Colchón</h2>
           <p class="caso-bajada">Un gestor de finanzas personales para saber en qué se va la plata, en pesos y en dólares. <em>Instalable en el celular.</em></p>
         </header>

@@ -1,13 +1,13 @@
 # Portfolio — Santiago Morales Marek
 
 Sitio estático (HTML + CSS + JS, sin build ni backend) con mis proyectos web,
-presentados como casos de estudio: A Mano, Carta Local y Abajo del Colchón.
+presentados como casos de estudio: A Mano, Miti-Miti, Carta Local y Abajo del Colchón.
 
 ## Estructura
 
 - `index.html` — portada, un `<article class="caso">` por proyecto, sobre mí y contacto.
 - `styles.css` — estilos (mobile-first, modo claro/oscuro automático con botón para cambiarlo).
-  Los colores están en variables al principio; cada proyecto tiene su acento (`--amano`, `--carta`, `--colchon`).
+  Los colores están en variables al principio; cada proyecto tiene su acento (`--amano`, `--miti`, `--carta`, `--colchon`).
 - `main.js` — botón de tema (se recuerda en el dispositivo), año y aparición al hacer scroll.
 - `img/` — capturas de cada proyecto en `.webp`: una de escritorio (1600 px) y una de celular (600 px).
 - `og.png` — vista previa al compartir el link (1200×630).
