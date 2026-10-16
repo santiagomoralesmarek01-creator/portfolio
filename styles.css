@@ -490,6 +490,21 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; }
 }
 .enlace:hover { color: var(--acento); }
 .nota { font-size: 14px; color: var(--ink-soft); }
+.cruce {
+  margin: 28px 0 0;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  font-size: 15px;
+  color: var(--ink-soft);
+}
+.cruce a {
+  color: var(--ink);
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: var(--acento);
+  text-underline-offset: 3px;
+}
+.cruce a:hover { color: var(--acento); }
 
 /* ---------- Vitrina: colección de ejemplos ---------- */
 .vitrina-caso .caso-cuerpo { margin-top: 0; }
