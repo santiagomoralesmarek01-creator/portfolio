@@ -26,7 +26,8 @@ más la colección **Vitrina** con 8 ejemplos de diseño (cartas, landings y app
   para los filtros. Las capturas de página completa están en `img/vitrina/` (vienen de `public/previews/` del repo `vitrina`).
   Si sumás uno, actualizá también el número de cada filtro.
 - **Links de redes:** están en el footer de `index.html`.
-- **Dominio:** <https://santiagomoralesmarek.com.ar>. Si cambia, actualizá `og:url`, `og:image` y `canonical` en `index.html`.
+- **Dominio:** <https://www.santiagomoralesmarek.com.ar> (el dominio sin `www` redirige ahí). Si cambia, actualizá
+  `og:url`, `og:image`, `twitter:image` y `canonical` en `index.html`.
 
 ## Ver en local
 
