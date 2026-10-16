@@ -1,7 +1,7 @@
 # Portfolio — Santiago Morales Marek
 
 Sitio estático (HTML + CSS + JS, sin build ni backend) con mis proyectos web,
-presentados como casos de estudio: A Mano, Miti-Miti, Carta Local y Abajo del Colchón,
+presentados como casos de estudio: A Mano, Miti-Miti, Pedí Directo y Abajo del Colchón,
 más la colección **Vitrina** con 8 ejemplos de diseño (cartas, landings y apps).
 
 ## Estructura
