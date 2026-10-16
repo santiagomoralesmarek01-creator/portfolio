@@ -13,9 +13,6 @@ más la colección **Vitrina** con 8 ejemplos de diseño (cartas, landings y app
   y el **recorrido**: una bola que cae por un riel a medida que bajás, rebota en la marca de cada proyecto y toma
   su color. Las marcas se arman solas a partir de los `<article class="caso">` (número, título y `--acento`),
   así que un proyecto nuevo aparece en el riel sin tocar nada. Con "reducir movimiento" sigue al scroll sin rebotes.
-  También el **nombre vivo** (las letras de la portada se levantan y se inclinan hacia el mouse o el dedo) y el
-  **cursor** (un punto que sigue al mouse con el color del proyecto; anillo sobre links, "Ver" sobre capturas).
-  El cursor sólo aparece con mouse, y ninguno de los dos se activa con "reducir movimiento".
 - `img/` — capturas de cada proyecto en `.webp`: una de escritorio (1600 px) y una de celular (600 px).
 - `og.png` — vista previa al compartir el link (1200×630).
 
