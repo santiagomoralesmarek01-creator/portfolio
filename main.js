@@ -19,9 +19,21 @@ botonTema?.addEventListener("click", () => {
 const anio = String(new Date().getFullYear());
 document.querySelectorAll("#year, #year-hero").forEach((el) => (el.textContent = anio));
 
+// Filtros de la Vitrina: muestran sólo las cartas, las landings o las apps.
+const filtros = document.querySelector(".filtros");
+filtros?.addEventListener("click", (ev) => {
+  const boton = ev.target.closest("[data-filtro]");
+  if (!boton) return;
+  const filtro = boton.dataset.filtro;
+  filtros.querySelectorAll("[data-filtro]").forEach((b) => b.setAttribute("aria-pressed", String(b === boton)));
+  document.querySelectorAll(".muestra").forEach((m) => {
+    m.hidden = filtro !== "todos" && m.dataset.tipo !== filtro;
+  });
+});
+
 // Aparición suave al hacer scroll (sin animación si se pidió reducir movimiento).
 function revelar() {
-  const objetivos = document.querySelectorAll(".caso-head, .vitrina, .caso-cuerpo, .sobre");
+  const objetivos = document.querySelectorAll(".caso-head, .vitrina, .caso-cuerpo, .muestras, .sobre");
   if (!("IntersectionObserver" in window) || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   objetivos.forEach((el) => el.classList.add("reveal"));
   const io = new IntersectionObserver(
