@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Santiago Morales Marek — Portfolio</title>
-  <meta name="description" content="Portfolio de Santiago Morales Marek, estudiante de Ingeniería en IA: A Mano, Miti-Miti, Carta Local y Abajo del Colchón, productos web hechos de punta a punta." />
+  <meta name="description" content="Portfolio de Santiago Morales Marek, estudiante de Ingeniería en IA: A Mano, Miti-Miti, Carta Local, Abajo del Colchón y Vitrina, productos web hechos de punta a punta." />
   <meta name="theme-color" content="#f4f0e8" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#151410" media="(prefers-color-scheme: dark)" />
   <meta property="og:type" content="website" />
@@ -13,7 +13,7 @@
   <meta property="og:description" content="Estudiante de Ingeniería en IA. Productos web hechos de punta a punta: diseño, código y puesta en marcha." />
   <meta property="og:url" content="https://santiagomoralesmarek.com.ar/" />
   <meta property="og:image" content="https://santiagomoralesmarek.com.ar/og.png" />
-  <meta property="og:image:alt" content="Santiago Morales Marek: portfolio con A Mano, Miti-Miti, Carta Local y Abajo del Colchón." />
+  <meta property="og:image:alt" content="Santiago Morales Marek: portfolio con A Mano, Miti-Miti, Carta Local, Abajo del Colchón y Vitrina." />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -64,6 +64,7 @@
           <li><a href="#miti-miti"><span class="indice-num">02</span><span class="indice-nombre">Miti-Miti</span><span class="indice-tipo">Gastos compartidos</span></a></li>
           <li><a href="#carta-local"><span class="indice-num">03</span><span class="indice-nombre">Carta Local</span><span class="indice-tipo">Menú digital y pedidos</span></a></li>
           <li><a href="#abajo-del-colchon"><span class="indice-num">04</span><span class="indice-nombre">Abajo del Colchón</span><span class="indice-tipo">Finanzas personales</span></a></li>
+          <li><a href="#vitrina"><span class="indice-num">05</span><span class="indice-nombre">Vitrina</span><span class="indice-tipo">8 ejemplos de diseño</span></a></li>
         </ol>
       </div>
     </section>
@@ -245,6 +246,116 @@
             </p>
           </div>
         </div>
+      </article>
+
+      <!-- 05 · VITRINA -->
+      <article class="caso vitrina-caso" id="vitrina" style="--acento: var(--vitrina)">
+        <header class="caso-head">
+          <p class="caso-meta"><span class="caso-num">05</span><span>Colección de diseño</span><span>2026</span></p>
+          <h2 class="caso-titulo">Vitrina</h2>
+          <p class="caso-bajada">Cartas de restaurante, landings y apps para clientes ficticios. <em>Ninguna comparte diseño:</em> cada una tiene su tipografía, su paleta y sus propias interacciones.</p>
+        </header>
+
+        <div class="caso-cuerpo">
+          <dl class="cifras">
+            <div><dt>Ejemplos</dt><dd>8</dd></div>
+            <div><dt>Diseños repetidos</dt><dd>0</dd></div>
+            <div><dt>Familias tipográficas</dt><dd>14</dd></div>
+          </dl>
+          <div class="caso-texto">
+            <p>Un ejercicio para probar estilos muy distintos con el mismo rigor: cada ejemplo tiene su lógica separada de la interfaz y cubierta con <strong>tests</strong>, se usa con teclado y respeta “reducir movimiento”.</p>
+            <ul class="stack" aria-label="Tecnologías">
+              <li>TypeScript</li><li>Vite</li><li>CSS a mano</li><li>SVG</li><li>Vitest</li><li>GitHub Actions</li>
+            </ul>
+            <p class="enlaces">
+              <a class="boton" href="https://vitrina-iota-ten.vercel.app/" target="_blank" rel="noopener noreferrer">Ver la galería <span aria-hidden="true">↗</span></a>
+              <a class="enlace" href="https://github.com/santiagomoralesmarek01-creator/vitrina" target="_blank" rel="noopener noreferrer">Código en GitHub</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="filtros" role="group" aria-label="Filtrar ejemplos por tipo">
+          <button type="button" data-filtro="todos" aria-pressed="true">Todos <span>8</span></button>
+          <button type="button" data-filtro="carta" aria-pressed="false">Cartas <span>4</span></button>
+          <button type="button" data-filtro="landing" aria-pressed="false">Landings <span>2</span></button>
+          <button type="button" data-filtro="app" aria-pressed="false">Apps <span>2</span></button>
+        </div>
+
+        <ul class="muestras">
+          <li class="muestra" data-tipo="carta">
+            <a class="muestra-vista" href="https://vitrina-iota-ten.vercel.app/bodegon/" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+              <img src="img/vitrina/bodegon.webp" width="640" height="1817" loading="lazy" alt="" />
+            </a>
+            <p class="muestra-tipo">Carta · Carta de parrilla</p>
+            <h3 class="muestra-nombre"><a href="https://vitrina-iota-ten.vercel.app/bodegon/" target="_blank" rel="noopener noreferrer">Bodegón Don Ernesto <span aria-hidden="true">↗</span></a></h3>
+            <p class="muestra-desc">Pizarra y papel madera, como la carta de siempre pero en el celular.</p>
+            <ul class="muestra-detalle" aria-label="Interacciones"><li>Pestañas que siguen el scroll</li><li>Filtros sin TACC y veggie</li><li>Pedido con total y envío por WhatsApp</li></ul>
+          </li>
+          <li class="muestra" data-tipo="carta">
+            <a class="muestra-vista" href="https://vitrina-iota-ten.vercel.app/nube/" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+              <img src="img/vitrina/nube.webp" width="640" height="1033" loading="lazy" alt="" />
+            </a>
+            <p class="muestra-tipo">Carta · Carta de café de especialidad</p>
+            <h3 class="muestra-nombre"><a href="https://vitrina-iota-ten.vercel.app/nube/" target="_blank" rel="noopener noreferrer">nube <span aria-hidden="true">↗</span></a></h3>
+            <p class="muestra-desc">Minimalista y luminosa, con dibujos de línea y modo noche.</p>
+            <ul class="muestra-detalle" aria-label="Interacciones"><li>Tarjetas de origen que se dan vuelta</li><li>Precios según tamaño y leche</li><li>Modo día y noche</li></ul>
+          </li>
+          <li class="muestra" data-tipo="carta">
+            <a class="muestra-vista" href="https://vitrina-iota-ten.vercel.app/tano/" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+              <img src="img/vitrina/tano.webp" width="640" height="1272" loading="lazy" alt="" />
+            </a>
+            <p class="muestra-tipo">Carta · Pizzería napolitana</p>
+            <h3 class="muestra-nombre"><a href="https://vitrina-iota-ten.vercel.app/tano/" target="_blank" rel="noopener noreferrer">Tano <span aria-hidden="true">↗</span></a></h3>
+            <p class="muestra-desc">Cartel de neón viejo y mantel a cuadros, con una pizza que se arma en pantalla.</p>
+            <ul class="muestra-detalle" aria-label="Interacciones"><li>Armador de pizza en SVG</li><li>Mitad y mitad</li><li>Precio en vivo y pedido</li></ul>
+          </li>
+          <li class="muestra" data-tipo="carta">
+            <a class="muestra-vista" href="https://vitrina-iota-ten.vercel.app/neblina/" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+              <img src="img/vitrina/neblina.webp" width="640" height="1635" loading="lazy" alt="" />
+            </a>
+            <p class="muestra-tipo">Carta · Bar de tragos de autor</p>
+            <h3 class="muestra-nombre"><a href="https://vitrina-iota-ten.vercel.app/neblina/" target="_blank" rel="noopener noreferrer">Neblina <span aria-hidden="true">↗</span></a></h3>
+            <p class="muestra-desc">Art déco nocturno, dorado sobre negro, con cuenta regresiva del happy hour.</p>
+            <ul class="muestra-detalle" aria-label="Interacciones"><li>Test que te recomienda un trago</li><li>Perfil de sabor en radar</li><li>Happy hour en vivo</li></ul>
+          </li>
+          <li class="muestra" data-tipo="landing">
+            <a class="muestra-vista" href="https://vitrina-iota-ten.vercel.app/pulso/" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+              <img src="img/vitrina/pulso.webp" width="640" height="1898" loading="lazy" alt="" />
+            </a>
+            <p class="muestra-tipo">Landing · Estudio de yoga y pilates</p>
+            <h3 class="muestra-nombre"><a href="https://vitrina-iota-ten.vercel.app/pulso/" target="_blank" rel="noopener noreferrer">Pulso <span aria-hidden="true">↗</span></a></h3>
+            <p class="muestra-desc">Formas orgánicas que respiran y tipografía serif en cursiva.</p>
+            <ul class="muestra-detalle" aria-label="Interacciones"><li>Respiración guiada</li><li>Horarios filtrables con reserva</li><li>Carrusel y planes con descuento</li></ul>
+          </li>
+          <li class="muestra" data-tipo="landing">
+            <a class="muestra-vista" href="https://vitrina-iota-ten.vercel.app/volta/" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+              <img src="img/vitrina/volta.webp" width="640" height="1786" loading="lazy" alt="" />
+            </a>
+            <p class="muestra-tipo">Landing · Bicis eléctricas</p>
+            <h3 class="muestra-nombre"><a href="https://vitrina-iota-ten.vercel.app/volta/" target="_blank" rel="noopener noreferrer">Volta <span aria-hidden="true">↗</span></a></h3>
+            <p class="muestra-desc">Oscura y tecnológica, con acento neón que cambia con tu elección.</p>
+            <ul class="muestra-detalle" aria-label="Interacciones"><li>Configurador de color y modelo</li><li>Calculadora de ahorro</li><li>Animaciones al bajar</li></ul>
+          </li>
+          <li class="muestra" data-tipo="app">
+            <a class="muestra-vista" href="https://vitrina-iota-ten.vercel.app/filo/" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+              <img src="img/vitrina/filo.webp" width="640" height="400" loading="lazy" alt="" style="object-position: 0 50%" />
+            </a>
+            <p class="muestra-tipo">App · Turnero de barbería</p>
+            <h3 class="muestra-nombre"><a href="https://vitrina-iota-ten.vercel.app/filo/" target="_blank" rel="noopener noreferrer">Filo <span aria-hidden="true">↗</span></a></h3>
+            <p class="muestra-desc">Reserva en cinco pasos con horarios ocupados de verdad y resumen siempre a la vista.</p>
+            <ul class="muestra-detalle" aria-label="Interacciones"><li>Reserva paso a paso</li><li>Mis turnos guardados</li><li>Evento para el calendario (.ics)</li></ul>
+          </li>
+          <li class="muestra" data-tipo="app">
+            <a class="muestra-vista" href="https://vitrina-iota-ten.vercel.app/mercadito/" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+              <img src="img/vitrina/mercadito.webp" width="640" height="1078" loading="lazy" alt="" />
+            </a>
+            <p class="muestra-tipo">App · Panel de ventas</p>
+            <h3 class="muestra-nombre"><a href="https://vitrina-iota-ten.vercel.app/mercadito/" target="_blank" rel="noopener noreferrer">Mercadito Verde <span aria-hidden="true">↗</span></a></h3>
+            <p class="muestra-desc">Dashboard de una tienda orgánica: indicadores, comparación con el período anterior y modo oscuro.</p>
+            <ul class="muestra-detalle" aria-label="Interacciones"><li>Gráficos con tooltip y vista de tabla</li><li>Rango de 7, 30 o 90 días</li><li>Tabla ordenable con búsqueda</li></ul>
+          </li>
+        </ul>
+        <p class="vitrina-nota">Los negocios, las personas y los precios son ficticios. Pasá el mouse por una captura para recorrer la página.</p>
       </article>
     </div>
 

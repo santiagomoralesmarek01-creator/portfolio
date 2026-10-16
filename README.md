@@ -1,13 +1,14 @@
 # Portfolio — Santiago Morales Marek
 
 Sitio estático (HTML + CSS + JS, sin build ni backend) con mis proyectos web,
-presentados como casos de estudio: A Mano, Miti-Miti, Carta Local y Abajo del Colchón.
+presentados como casos de estudio: A Mano, Miti-Miti, Carta Local y Abajo del Colchón,
+más la colección **Vitrina** con 8 ejemplos de diseño (cartas, landings y apps).
 
 ## Estructura
 
 - `index.html` — portada, un `<article class="caso">` por proyecto, sobre mí y contacto.
 - `styles.css` — estilos (mobile-first, modo claro/oscuro automático con botón para cambiarlo).
-  Los colores están en variables al principio; cada proyecto tiene su acento (`--amano`, `--miti`, `--carta`, `--colchon`).
+  Los colores están en variables al principio; cada proyecto tiene su acento (`--amano`, `--miti`, `--carta`, `--colchon`, `--vitrina`).
 - `main.js` — botón de tema (se recuerda en el dispositivo), año y aparición al hacer scroll.
 - `img/` — capturas de cada proyecto en `.webp`: una de escritorio (1600 px) y una de celular (600 px).
 - `og.png` — vista previa al compartir el link (1200×630).
@@ -18,6 +19,9 @@ presentados como casos de estudio: A Mano, Miti-Miti, Carta Local y Abajo del Co
   el número, los textos y las capturas, y definí su color en `styles.css` (modo claro y oscuro).
   Sumalo también al índice de la portada (`.indice`).
 - **Capturas:** sacalas a 1280×800 (escritorio) y 390×844 (celular) con zoom 2× y convertilas a `.webp`.
+- **Vitrina:** cada ejemplo es un `<li class="muestra">` dentro de la sección `#vitrina`, con `data-tipo` (`carta`, `landing` o `app`)
+  para los filtros. Las capturas de página completa están en `img/vitrina/` (vienen de `public/previews/` del repo `vitrina`).
+  Si sumás uno, actualizá también el número de cada filtro.
 - **Links de redes:** están en el footer de `index.html`.
 - **Dominio:** <https://santiagomoralesmarek.com.ar>. Si cambia, actualizá `og:url`, `og:image` y `canonical` en `index.html`.
 
