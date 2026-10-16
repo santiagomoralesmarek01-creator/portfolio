@@ -665,6 +665,32 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; }
 .footer-mail:hover { color: var(--hi); }
 .footer-mail:hover span { transform: translateX(10px); }
 
+.footer-copiar {
+  margin: 20px 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  min-height: 40px;
+}
+.copiar-mail {
+  padding: 9px 18px;
+  border: 1px solid color-mix(in srgb, var(--paper) 35%, transparent);
+  border-radius: 99px;
+  background: transparent;
+  color: var(--paper);
+  font: 500 14px var(--sans);
+  cursor: pointer;
+  transition: border-color .2s, background .2s, color .2s;
+}
+.copiar-mail:hover { border-color: var(--paper); }
+.copiar-aviso {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: .04em;
+  color: var(--hi);
+}
+
 .redes {
   list-style: none;
   margin: 32px 0 0;
