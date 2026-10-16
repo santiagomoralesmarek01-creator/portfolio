@@ -51,3 +51,119 @@ function revelar() {
 }
 
 revelar();
+
+// Recorrido: una bola cae por el riel a medida que bajás. Rebota en cada marca de
+// proyecto y toma el color de la sección en la que estás. Con "reducir movimiento"
+// sigue al scroll sin rebotes.
+function recorrido() {
+  const nav = document.querySelector(".recorrido");
+  const lista = nav?.querySelector(".recorrido-marcas");
+  const bola = nav?.querySelector(".bola");
+  if (!nav || !lista || !bola) return;
+
+  const casos = [...document.querySelectorAll("article.caso")];
+  const sobre = document.getElementById("sobre-mi");
+  const quieto = matchMedia("(prefers-reduced-motion: reduce)");
+
+  lista.innerHTML = casos
+    .map((c) => {
+      const num = c.querySelector(".caso-num")?.textContent ?? "";
+      const nombre = c.querySelector(".caso-titulo")?.textContent ?? "";
+      const color = c.style.getPropertyValue("--acento");
+      return `<li><a href="#${c.id}" style="--marca-color: ${color}" aria-label="Ir a ${nombre}"><span class="marca-num">${num}</span><span class="marca-nombre">${nombre}</span></a></li>`;
+    })
+    .join("");
+  const marcas = [...lista.querySelectorAll("a")];
+
+  // Tramos: cada proyecto con su color; antes del primero y desde "Sobre mí", el acento general.
+  let alto = 0; // alto del riel en px
+  let tramos = []; // { desde (0–1), color, marca }
+  function medir() {
+    alto = nav.clientHeight;
+    const max = Math.max(1, document.documentElement.scrollHeight - innerHeight);
+    const pos = (el) => Math.min(1, Math.max(0, (el.getBoundingClientRect().top + scrollY - 80) / max));
+    tramos = casos.map((c, i) => ({ desde: pos(c), color: c.style.getPropertyValue("--acento"), marca: marcas[i] }));
+    if (sobre) tramos.push({ desde: pos(sobre), color: "var(--hi)", marca: null });
+    tramos.forEach((t) => t.marca && (t.marca.style.top = `${t.desde * 100}%`));
+  }
+
+  let y = 0; // posición de la bola en px
+  let v = 0; // velocidad
+  let animando = false;
+  let tramoActual = -2;
+
+  function progreso() {
+    const max = Math.max(1, document.documentElement.scrollHeight - innerHeight);
+    return Math.min(1, Math.max(0, scrollY / max));
+  }
+
+  function pintar(estiramiento) {
+    const s = 1 + estiramiento;
+    bola.style.transform = `translate3d(0, ${y}px, 0) scale(${1 / Math.sqrt(s)}, ${s})`;
+  }
+
+  function colorear(p) {
+    let i = -1;
+    tramos.forEach((t, j) => p >= t.desde - 0.002 && (i = j));
+    if (i === tramoActual) return;
+    tramoActual = i;
+    nav.style.setProperty("--bola-color", i < 0 ? "var(--hi)" : tramos[i].color);
+    marcas.forEach((m) => m.setAttribute("aria-current", String(i >= 0 && tramos[i].marca === m)));
+  }
+
+  function paso() {
+    const objetivo = progreso() * alto;
+    if (quieto.matches) {
+      y = objetivo;
+      v = 0;
+      pintar(0);
+      animando = false;
+      return;
+    }
+    const antes = y;
+    v += (objetivo - y) * 0.06; // resorte hacia el scroll
+    v *= 0.86; // rozamiento
+    y += v;
+    // Al pasar hacia abajo por una marca, la bola "pica" en el escalón y salta un poco.
+    if (v > 1) {
+      for (const t of tramos) {
+        const ty = t.desde * alto;
+        if (antes < ty && y >= ty) v *= -0.35;
+      }
+    }
+    pintar(Math.min(0.45, Math.abs(v) / 30));
+    if (Math.abs(v) < 0.02 && Math.abs(objetivo - y) < 0.3) {
+      y = objetivo;
+      pintar(0);
+      animando = false;
+      return;
+    }
+    requestAnimationFrame(paso);
+  }
+
+  function despertar() {
+    colorear(progreso());
+    if (!animando) {
+      animando = true;
+      requestAnimationFrame(paso);
+    }
+  }
+
+  medir();
+  y = progreso() * alto;
+  pintar(0);
+  colorear(progreso());
+  addEventListener("scroll", despertar, { passive: true });
+  addEventListener("resize", () => {
+    medir();
+    despertar();
+  });
+  // Las capturas cargan tarde y cambian el alto de la página.
+  addEventListener("load", () => {
+    medir();
+    despertar();
+  });
+  if ("ResizeObserver" in window) new ResizeObserver(() => medir()).observe(document.body);
+}
+
+recorrido();

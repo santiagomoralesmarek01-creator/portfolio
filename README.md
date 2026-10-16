@@ -9,7 +9,10 @@ más la colección **Vitrina** con 8 ejemplos de diseño (cartas, landings y app
 - `index.html` — portada, un `<article class="caso">` por proyecto, sobre mí y contacto.
 - `styles.css` — estilos (mobile-first, modo claro/oscuro automático con botón para cambiarlo).
   Los colores están en variables al principio; cada proyecto tiene su acento (`--amano`, `--miti`, `--carta`, `--colchon`, `--vitrina`).
-- `main.js` — botón de tema (se recuerda en el dispositivo), año y aparición al hacer scroll.
+- `main.js` — botón de tema (se recuerda en el dispositivo), año, filtros de la Vitrina, aparición al hacer scroll
+  y el **recorrido**: una bola que cae por un riel a medida que bajás, rebota en la marca de cada proyecto y toma
+  su color. Las marcas se arman solas a partir de los `<article class="caso">` (número, título y `--acento`),
+  así que un proyecto nuevo aparece en el riel sin tocar nada. Con "reducir movimiento" sigue al scroll sin rebotes.
 - `img/` — capturas de cada proyecto en `.webp`: una de escritorio (1600 px) y una de celular (600 px).
 - `og.png` — vista previa al compartir el link (1200×630).
 
