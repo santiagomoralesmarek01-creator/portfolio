@@ -697,6 +697,100 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; }
 }
 .footer-bottom a { text-decoration: none; }
 
+/* ---------- Recorrido: bola que cae con el scroll ---------- */
+.recorrido {
+  --bola-color: var(--hi);
+  position: fixed;
+  z-index: 40;
+  top: 96px;
+  bottom: 48px;
+  right: 10px;
+  width: 0;
+  pointer-events: none;
+}
+@media (min-width: 1360px) {
+  /* En pantallas anchas va en el margen izquierdo, centrado en el espacio libre. */
+  .recorrido { right: auto; left: calc((100vw - var(--max)) / 4); }
+}
+.recorrido-riel {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 1px;
+  background: var(--line);
+}
+.recorrido-marcas {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.recorrido-marcas a {
+  position: absolute;
+  left: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transform: translate(-4px, -50%);
+  text-decoration: none;
+  white-space: nowrap;
+  pointer-events: auto;
+}
+.recorrido-marcas a::before {
+  content: "";
+  flex: none;
+  width: 9px;
+  height: 1px;
+  background: var(--ink-soft);
+  transition: width .2s, background .2s;
+}
+.marca-num {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--ink-soft);
+}
+.marca-nombre {
+  font-family: var(--serif);
+  font-size: 18px;
+  color: var(--ink);
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity .2s, transform .2s;
+}
+.recorrido-marcas a:hover::before,
+.recorrido-marcas a:focus-visible::before,
+.recorrido-marcas a[aria-current="true"]::before { width: 16px; background: var(--marca-color, var(--ink)); }
+.recorrido-marcas a:hover .marca-nombre,
+.recorrido-marcas a:focus-visible .marca-nombre { opacity: 1; transform: none; }
+.recorrido-marcas a[aria-current="true"] .marca-num { color: var(--marca-color, var(--ink)); }
+
+.bola {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 14px;
+  height: 14px;
+  margin: -7px 0 0 -7px;
+  border-radius: 50%;
+  background: var(--bola-color);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--bola-color) 18%, transparent);
+  transition: background .4s ease, box-shadow .4s ease;
+  will-change: transform;
+}
+
+/* En pantallas angostas queda como un indicador discreto en el borde derecho, sin etiquetas. */
+@media (max-width: 1359px) {
+  .recorrido-marcas a { transform: translate(-50%, -50%); gap: 0; }
+  .recorrido-marcas a::before { width: 5px; height: 5px; border-radius: 50%; background: var(--line); }
+  .recorrido-marcas a[aria-current="true"]::before,
+  .recorrido-marcas a:hover::before { width: 5px; }
+  .marca-num, .marca-nombre { display: none; }
+}
+@media (max-width: 719px) {
+  .recorrido { right: 6px; top: 80px; bottom: 24px; }
+  .recorrido-marcas a { pointer-events: none; }
+  .bola { width: 10px; height: 10px; margin: -5px 0 0 -5px; box-shadow: none; }
+}
+@media print { .recorrido { display: none; } }
+
 /* ---------- Aparición al hacer scroll ---------- */
 .reveal {
   opacity: 0;
