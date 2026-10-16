@@ -31,6 +31,22 @@ filtros?.addEventListener("click", (ev) => {
   });
 });
 
+// Copiar el mail: para quien no usa Gmail ni tiene un programa de correo configurado.
+document.querySelector(".copiar-mail")?.addEventListener("click", async (ev) => {
+  const boton = ev.currentTarget;
+  const aviso = document.querySelector(".copiar-aviso");
+  const mail = boton.dataset.mail;
+  try {
+    await navigator.clipboard.writeText(mail);
+    aviso.textContent = "Copiado";
+  } catch {
+    // Sin permiso para el portapapeles: se muestra el mail para copiarlo a mano.
+    aviso.textContent = mail;
+  }
+  clearTimeout(boton._t);
+  boton._t = setTimeout(() => (aviso.textContent = ""), 2500);
+});
+
 // Aparición suave al hacer scroll (sin animación si se pidió reducir movimiento).
 function revelar() {
   const objetivos = document.querySelectorAll(".caso-head, .vitrina, .caso-cuerpo, .muestras, .sobre");
