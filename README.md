@@ -19,7 +19,7 @@ presentados como casos de estudio: A Mano, Miti-Miti, Carta Local y Abajo del Co
   Sumalo también al índice de la portada (`.indice`).
 - **Capturas:** sacalas a 1280×800 (escritorio) y 390×844 (celular) con zoom 2× y convertilas a `.webp`.
 - **Links de redes:** están en el footer de `index.html`.
-- **Vista previa al compartir:** cuando tengas el dominio fijo, poné la URL absoluta en `og:image`.
+- **Dominio:** <https://santiagomoralesmarek.com.ar>. Si cambia, actualizá `og:url`, `og:image` y `canonical` en `index.html`.
 
 ## Ver en local
 
