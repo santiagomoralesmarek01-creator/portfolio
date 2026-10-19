@@ -15,6 +15,8 @@ más la colección **Vitrina** con 8 ejemplos de diseño (cartas, landings y app
   así que un proyecto nuevo aparece en el riel sin tocar nada. Con "reducir movimiento" sigue al scroll sin rebotes.
 - `img/` — capturas de cada proyecto en `.webp`: una de escritorio (1600 px) y una de celular (600 px).
 - `og.png` — vista previa al compartir el link (1200×630).
+- `robots.txt` y `sitemap.xml` — para buscadores. Cuando cambies algo grande, actualizá `<lastmod>` en el sitemap.
+  En `index.html` hay datos estructurados (JSON-LD) con tu nombre, profesión y perfiles: si sumás una red, agregala en `sameAs`.
 
 ## Editar
 
