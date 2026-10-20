@@ -321,6 +321,7 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; }
   filter: blur(40px);
   z-index: -1;
 }
+.vitrina-segunda { margin-top: clamp(20px, 3vw, 32px); }
 .vitrina figcaption {
   margin-top: 14px;
   font-family: var(--mono);
@@ -505,27 +506,6 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; }
   text-underline-offset: 3px;
 }
 .cruce a:hover { color: var(--acento); }
-
-/* Segundo local de un caso (Pedí Directo → Café Almendra) */
-.otro-local {
-  margin-top: clamp(64px, 9vw, 112px);
-  padding-top: clamp(40px, 6vw, 64px);
-  border-top: 1px solid var(--line);
-  display: grid;
-  gap: clamp(48px, 6vw, 64px);
-}
-@media (min-width: 900px) {
-  .otro-local { grid-template-columns: 1.5fr 1fr; gap: 64px; align-items: center; }
-}
-.otro-local-titulo {
-  margin: 12px 0 16px;
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: clamp(36px, 5vw, 56px);
-  line-height: 1;
-  letter-spacing: -.02em;
-}
-.otro-local-texto > p:not(.caso-meta):not(.enlaces) { margin: 0 0 24px; color: var(--ink-soft); line-height: 1.55; }
 
 /* ---------- Vitrina: colección de ejemplos ---------- */
 .vitrina-caso .caso-cuerpo { margin-top: 0; }
