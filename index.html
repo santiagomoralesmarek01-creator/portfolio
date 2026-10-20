@@ -106,7 +106,7 @@
         <ol class="indice" aria-label="Proyectos">
           <li><a href="#a-mano"><span class="indice-num">01</span><span class="indice-nombre">A Mano</span><span class="indice-tipo">Recetas con IA</span></a></li>
           <li><a href="#miti-miti"><span class="indice-num">02</span><span class="indice-nombre">Miti-Miti</span><span class="indice-tipo">Gastos compartidos</span></a></li>
-          <li><a href="#pedi-directo"><span class="indice-num">03</span><span class="indice-nombre">Pedí Directo</span><span class="indice-tipo">Menú digital y pedidos</span></a></li>
+          <li><a href="#pedi-directo"><span class="indice-num">03</span><span class="indice-nombre">Pedí Directo</span><span class="indice-tipo">Web de pedidos y carta QR</span></a></li>
           <li><a href="#abajo-del-colchon"><span class="indice-num">04</span><span class="indice-nombre">Abajo del Colchón</span><span class="indice-tipo">Finanzas personales</span></a></li>
           <li><a href="#vitrina"><span class="indice-num">05</span><span class="indice-nombre">Vitrina</span><span class="indice-tipo">16 ejemplos de diseño</span></a></li>
         </ol>
@@ -209,42 +209,42 @@
         <header class="caso-head">
           <p class="caso-meta"><span class="caso-num">03</span><span>Producto para comercios</span><span>2026</span></p>
           <h2 class="caso-titulo">Pedí Directo</h2>
-          <p class="caso-bajada">Web, carta con QR y pedidos por WhatsApp para rotiserías, bares y cafeterías del barrio. <em>Sin comisiones por venta.</em></p>
+          <p class="caso-bajada">Web de pedidos con diseño propio, carta del salón con fotos y QR para cada mesa, para rotiserías, pizzerías y cafeterías del barrio. <em>Sin comisiones por venta.</em></p>
         </header>
 
         <figure class="vitrina">
           <div class="navegador">
-            <div class="navegador-barra" aria-hidden="true"><i></i><i></i><i></i><span>carta-local-pi.vercel.app</span></div>
-            <img src="img/carta-local.webp" width="1600" height="1000" loading="lazy" alt="Página de Rotisería La Esquina, local de demostración: “Comida casera, lista para llevar”, con una ilustración de una caja de empanadas." />
+            <div class="navegador-barra" aria-hidden="true"><i></i><i></i><i></i><span>carta-local-pi.vercel.app/la-esquina</span></div>
+            <img src="img/carta-local.webp" width="1600" height="1000" loading="lazy" alt="Web de pedidos de Rotisería La Esquina, local de demostración: toldo a rayas, pared de azulejos verdes, cartel fileteado y una pizarra de letras con “Empanadas al horno, docena $14.000, pizza x mitades”." />
           </div>
           <div class="telefono">
-            <img src="img/carta-local-movil.webp" width="600" height="1299" loading="lazy" alt="La carta de la rotisería en el celular, con empanadas y precios." />
+            <img src="img/carta-local-movil.webp" width="600" height="1299" loading="lazy" alt="Carta del salón de La Esquina en el celular: cartel fileteado, pestañas de categorías y empanadas con sus precios." />
           </div>
         </figure>
 
         <div class="caso-cuerpo">
           <dl class="cifras">
-            <div><dt>Código nuevo por local</dt><dd>0</dd></div>
+            <div><dt>Formas de pedir: web o mozo</dt><dd>2</dd></div>
             <div><dt>Mensaje con el pedido</dt><dd>1</dd></div>
-            <div><dt>Carteles QR por hoja A4</dt><dd>4</dd></div>
+            <div><dt>Comisión por venta</dt><dd>0</dd></div>
           </dl>
           <div class="caso-texto">
-            <p>Pensado como servicio para comercios chicos: el mismo código sirve a todos los locales, y <strong>cada local es un archivo de datos</strong> con su carta, su marca y sus horarios.</p>
+            <p>Un servicio para comercios chicos con dos piezas: una <strong>web de pedidos</strong> diseñada a medida para cada local, donde el pedido se arma de forma visual y llega por WhatsApp, y una <strong>carta del salón</strong> con fotos y precios que se abre con el QR de la mesa para pedirle al mozo.</p>
             <ul class="lista">
+              <li><strong>Pedidos que se arman a la vista:</strong> la docena de empanadas llena una caja y cobra la combinación más barata; la pizza se elige por mitades y se cobra la más cara.</li>
               <li><strong>Pedido por WhatsApp</strong> en un único mensaje ordenado: productos, retiro o envío, forma de pago y total.</li>
-              <li><strong>Panel del dueño</strong> desde el celular: cambiar precios uno por uno o con aumento por porcentaje, marcar agotados, editar horarios y publicar el aviso del día.</li>
-              <li><strong>QR y carteles de mesa</strong> listos para imprimir, en SVG para imprenta o PNG.</li>
-              <li><strong>“Abierto · cierra a las 15”</strong> calculado con la hora argentina, e ilustraciones de línea propias para cada local.</li>
-              <li>La lógica (precios, horarios, pedido) está separada de la interfaz y cubierta con <strong>tests</strong>.</li>
+              <li><strong>Panel del dueño</strong> desde el celular: precios, aumentos por porcentaje, agotados, horarios, aviso del día y <strong>fotos de cada producto</strong>, que se ven al instante en la web y en la carta.</li>
+              <li><strong>QR y carteles de mesa</strong> listos para imprimir, que llevan directo a la carta del salón.</li>
+              <li>Un motor compartido (pedido, precios, horarios) con la lógica separada de la interfaz y cubierta con <strong>tests</strong>; cada local suma sólo su diseño.</li>
             </ul>
             <ul class="stack" aria-label="Tecnologías">
               <li>TypeScript</li><li>Vite</li><li>Supabase</li><li>Vitest</li><li>Vercel</li>
             </ul>
             <p class="enlaces">
-              <a class="boton" href="https://carta-local-pi.vercel.app" target="_blank" rel="noopener noreferrer">Ver la demo <span aria-hidden="true">↗</span></a>
-              <a class="enlace" href="https://carta-local-pi.vercel.app/carta?local=cafe-almendra&amp;plan=carta" target="_blank" rel="noopener noreferrer">Otra demo: Café Almendra</a>
+              <a class="boton" href="https://carta-local-pi.vercel.app/la-esquina" target="_blank" rel="noopener noreferrer">Ver la web de pedidos <span aria-hidden="true">↗</span></a>
+              <a class="enlace" href="https://carta-local-pi.vercel.app/la-esquina/carta" target="_blank" rel="noopener noreferrer">Ver la carta del salón</a>
             </p>
-            <p class="cruce">¿Otro estilo para la carta? Las cartas de la <a href="#vitrina">Vitrina</a> son propuestas de diseño que se pueden llevar a un local.</p>
+            <p class="cruce">¿Otro estilo? Los ejemplos de la <a href="#vitrina">Vitrina</a> muestran cómo puede verse la web de cada local.</p>
           </div>
         </div>
       </article>
