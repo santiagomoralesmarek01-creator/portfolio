@@ -321,6 +321,7 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; }
   filter: blur(40px);
   z-index: -1;
 }
+.vitrina-segunda { margin-top: clamp(20px, 3vw, 32px); }
 .vitrina figcaption {
   margin-top: 14px;
   font-family: var(--mono);
