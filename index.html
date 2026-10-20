@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Santiago Morales Marek — Diseñador y desarrollador web</title>
-  <meta name="description" content="Portfolio de Santiago Morales Marek, estudiante de Ingeniería en IA: A Mano, Miti-Miti, Pedí Directo, Abajo del Colchón y Vitrina, productos web hechos de punta a punta." />
+  <meta name="description" content="Portfolio de Santiago Morales Marek, estudiante de Ingeniería en IA: Pedidos Interactivos, A Mano, Miti-Miti, Abajo del Colchón y Vitrina, productos web hechos de punta a punta." />
   <meta name="theme-color" content="#f4f0e8" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#151410" media="(prefers-color-scheme: dark)" />
   <meta property="og:type" content="website" />
@@ -14,7 +14,7 @@
   <meta property="og:description" content="Estudiante de Ingeniería en IA. Productos web hechos de punta a punta: diseño, código y puesta en marcha." />
   <meta property="og:url" content="https://www.santiagomoralesmarek.com.ar/" />
   <meta property="og:image" content="https://www.santiagomoralesmarek.com.ar/og.png" />
-  <meta property="og:image:alt" content="Santiago Morales Marek: portfolio con A Mano, Miti-Miti, Pedí Directo, Abajo del Colchón y Vitrina." />
+  <meta property="og:image:alt" content="Santiago Morales Marek: portfolio con Pedidos Interactivos, A Mano, Miti-Miti, Abajo del Colchón y Vitrina." />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -100,13 +100,13 @@
       <h1 class="hero-name">Santiago Morales <em>Marek</em></h1>
       <div class="hero-grid">
         <p class="hero-lead">
-          Estudio <em>Ingeniería en Inteligencia Artificial</em> y hago productos web de punta a punta:
-          los pienso, los diseño, los programo y los publico para que los use gente real.
+          Estudio <em>Ingeniería en Inteligencia Artificial</em> y hago productos web de punta a punta.
+          Mi fuerte: <em>cartas digitales</em> donde el cliente arma su pedido y al local le llega ordenado por WhatsApp.
         </p>
         <ol class="indice" aria-label="Proyectos">
-          <li><a href="#a-mano"><span class="indice-num">01</span><span class="indice-nombre">A Mano</span><span class="indice-tipo">Recetas con IA</span></a></li>
-          <li><a href="#miti-miti"><span class="indice-num">02</span><span class="indice-nombre">Miti-Miti</span><span class="indice-tipo">Gastos compartidos</span></a></li>
-          <li><a href="#pedi-directo"><span class="indice-num">03</span><span class="indice-nombre">Pedí Directo</span><span class="indice-tipo">Menú digital y pedidos</span></a></li>
+          <li><a href="#pedidos-interactivos"><span class="indice-num">01</span><span class="indice-nombre">Pedidos Interactivos</span><span class="indice-tipo">Cartas con pedidos por WhatsApp</span></a></li>
+          <li><a href="#a-mano"><span class="indice-num">02</span><span class="indice-nombre">A Mano</span><span class="indice-tipo">Recetas con IA</span></a></li>
+          <li><a href="#miti-miti"><span class="indice-num">03</span><span class="indice-nombre">Miti-Miti</span><span class="indice-tipo">Gastos compartidos</span></a></li>
           <li><a href="#abajo-del-colchon"><span class="indice-num">04</span><span class="indice-nombre">Abajo del Colchón</span><span class="indice-tipo">Finanzas personales</span></a></li>
           <li><a href="#vitrina"><span class="indice-num">05</span><span class="indice-nombre">Vitrina</span><span class="indice-tipo">8 ejemplos de diseño</span></a></li>
         </ol>
@@ -116,10 +116,55 @@
     <!-- PROYECTOS -->
     <div id="trabajos">
 
-      <!-- 01 · A MANO -->
+      <!-- 01 · PEDIDOS INTERACTIVOS -->
+      <article class="caso" id="pedidos-interactivos" style="--acento: var(--carta)">
+        <header class="caso-head">
+          <p class="caso-meta"><span class="caso-num">01</span><span>Producto para comercios</span><span>2026</span></p>
+          <h2 class="caso-titulo">Pedidos Interactivos</h2>
+          <p class="caso-bajada">Web, carta con QR y pedidos por WhatsApp para rotiserías, bares y cafeterías del barrio. <em>Sin comisiones por venta.</em></p>
+        </header>
+
+        <figure class="vitrina">
+          <div class="navegador">
+            <div class="navegador-barra" aria-hidden="true"><i></i><i></i><i></i><span>carta-local-pi.vercel.app</span></div>
+            <img src="img/carta-local.webp" width="1600" height="1000" loading="lazy" alt="Página de Rotisería La Esquina, local de demostración: “Comida casera, lista para llevar”, con una ilustración de una caja de empanadas." />
+          </div>
+          <div class="telefono">
+            <img src="img/carta-local-movil.webp" width="600" height="1299" loading="lazy" alt="La carta de la rotisería en el celular, con empanadas y precios." />
+          </div>
+        </figure>
+
+        <div class="caso-cuerpo">
+          <dl class="cifras">
+            <div><dt>Código nuevo por local</dt><dd>0</dd></div>
+            <div><dt>Mensaje con el pedido</dt><dd>1</dd></div>
+            <div><dt>Carteles QR por hoja A4</dt><dd>4</dd></div>
+          </dl>
+          <div class="caso-texto">
+            <p>Pensado como servicio para comercios chicos: el mismo código sirve a todos los locales, y <strong>cada local es un archivo de datos</strong> con su carta, su marca y sus horarios.</p>
+            <ul class="lista">
+              <li><strong>Pedido por WhatsApp</strong> en un único mensaje ordenado: productos, retiro o envío, forma de pago y total.</li>
+              <li><strong>Panel del dueño</strong> desde el celular: cambiar precios uno por uno o con aumento por porcentaje, marcar agotados, editar horarios y publicar el aviso del día.</li>
+              <li><strong>QR y carteles de mesa</strong> listos para imprimir, en SVG para imprenta o PNG.</li>
+              <li><strong>“Abierto · cierra a las 15”</strong> calculado con la hora argentina, e ilustraciones de línea propias para cada local.</li>
+              <li>La lógica (precios, horarios, pedido) está separada de la interfaz y cubierta con <strong>tests</strong>.</li>
+            </ul>
+            <ul class="stack" aria-label="Tecnologías">
+              <li>TypeScript</li><li>Vite</li><li>Supabase</li><li>Vitest</li><li>Vercel</li>
+            </ul>
+            <p class="enlaces">
+              <a class="boton" href="https://carta-local-pi.vercel.app" target="_blank" rel="noopener noreferrer">Ver la demo <span aria-hidden="true">↗</span></a>
+              <a class="enlace" href="https://carta-local-pi.vercel.app/carta?local=cafe-almendra&amp;plan=carta" target="_blank" rel="noopener noreferrer">Otra demo: Café Almendra</a>
+            </p>
+            <p class="cruce">¿Otro estilo para la carta? Las cartas de la <a href="#vitrina">Vitrina</a> son propuestas de diseño que se pueden llevar a un local.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- 02 · A MANO -->
       <article class="caso" id="a-mano" style="--acento: var(--amano)">
         <header class="caso-head">
-          <p class="caso-meta"><span class="caso-num">01</span><span>Producto propio</span><span>2026</span></p>
+          <p class="caso-meta"><span class="caso-num">02</span><span>Producto propio</span><span>2026</span></p>
           <h2 class="caso-titulo">A Mano</h2>
           <p class="caso-bajada">Cocina latinoamericana que se adapta a lo que tenés en la heladera, a tu país y a tu nivel. <em>Con lo que hay, alcanza.</em></p>
         </header>
@@ -160,10 +205,10 @@
         </div>
       </article>
 
-      <!-- 02 · MITI-MITI -->
+      <!-- 03 · MITI-MITI -->
       <article class="caso" id="miti-miti" style="--acento: var(--miti)">
         <header class="caso-head">
-          <p class="caso-meta"><span class="caso-num">02</span><span>Producto propio</span><span>2026</span></p>
+          <p class="caso-meta"><span class="caso-num">03</span><span>Producto propio</span><span>2026</span></p>
           <h2 class="caso-titulo">Miti-Miti</h2>
           <p class="caso-bajada">Para dividir gastos entre amigos: anotás quién pagó qué y te dice quién le debe a quién, con la menor cantidad de transferencias. <em>Las cuentas claras.</em></p>
         </header>
@@ -200,51 +245,6 @@
               <a class="boton" href="https://miti-miti.com.ar" target="_blank" rel="noopener noreferrer">Ver el sitio <span aria-hidden="true">↗</span></a>
               <a class="enlace" href="https://github.com/santiagomoralesmarek01-creator/miti-miti" target="_blank" rel="noopener noreferrer">Código en GitHub</a>
             </p>
-          </div>
-        </div>
-      </article>
-
-      <!-- 03 · PEDÍ DIRECTO -->
-      <article class="caso" id="pedi-directo" style="--acento: var(--carta)">
-        <header class="caso-head">
-          <p class="caso-meta"><span class="caso-num">03</span><span>Producto para comercios</span><span>2026</span></p>
-          <h2 class="caso-titulo">Pedí Directo</h2>
-          <p class="caso-bajada">Web, carta con QR y pedidos por WhatsApp para rotiserías, bares y cafeterías del barrio. <em>Sin comisiones por venta.</em></p>
-        </header>
-
-        <figure class="vitrina">
-          <div class="navegador">
-            <div class="navegador-barra" aria-hidden="true"><i></i><i></i><i></i><span>carta-local-pi.vercel.app</span></div>
-            <img src="img/carta-local.webp" width="1600" height="1000" loading="lazy" alt="Página de Rotisería La Esquina, local de demostración: “Comida casera, lista para llevar”, con una ilustración de una caja de empanadas." />
-          </div>
-          <div class="telefono">
-            <img src="img/carta-local-movil.webp" width="600" height="1299" loading="lazy" alt="La carta de la rotisería en el celular, con empanadas y precios." />
-          </div>
-        </figure>
-
-        <div class="caso-cuerpo">
-          <dl class="cifras">
-            <div><dt>Código nuevo por local</dt><dd>0</dd></div>
-            <div><dt>Mensaje con el pedido</dt><dd>1</dd></div>
-            <div><dt>Carteles QR por hoja A4</dt><dd>4</dd></div>
-          </dl>
-          <div class="caso-texto">
-            <p>Pensado como servicio para comercios chicos: el mismo código sirve a todos los locales, y <strong>cada local es un archivo de datos</strong> con su carta, su marca y sus horarios.</p>
-            <ul class="lista">
-              <li><strong>Pedido por WhatsApp</strong> en un único mensaje ordenado: productos, retiro o envío, forma de pago y total.</li>
-              <li><strong>Panel del dueño</strong> desde el celular: cambiar precios uno por uno o con aumento por porcentaje, marcar agotados, editar horarios y publicar el aviso del día.</li>
-              <li><strong>QR y carteles de mesa</strong> listos para imprimir, en SVG para imprenta o PNG.</li>
-              <li><strong>“Abierto · cierra a las 15”</strong> calculado con la hora argentina, e ilustraciones de línea propias para cada local.</li>
-              <li>La lógica (precios, horarios, pedido) está separada de la interfaz y cubierta con <strong>tests</strong>.</li>
-            </ul>
-            <ul class="stack" aria-label="Tecnologías">
-              <li>TypeScript</li><li>Vite</li><li>Supabase</li><li>Vitest</li><li>Vercel</li>
-            </ul>
-            <p class="enlaces">
-              <a class="boton" href="https://carta-local-pi.vercel.app" target="_blank" rel="noopener noreferrer">Ver la demo <span aria-hidden="true">↗</span></a>
-              <a class="enlace" href="https://carta-local-pi.vercel.app/carta?local=cafe-almendra&amp;plan=carta" target="_blank" rel="noopener noreferrer">Otra demo: Café Almendra</a>
-            </p>
-            <p class="cruce">¿Otro estilo para la carta? Las cartas de la <a href="#vitrina">Vitrina</a> son propuestas de diseño que se pueden llevar a un local.</p>
           </div>
         </div>
       </article>
@@ -316,7 +316,7 @@
               <a class="boton" href="https://vitrina-iota-ten.vercel.app/" target="_blank" rel="noopener noreferrer">Ver la galería <span aria-hidden="true">↗</span></a>
               <a class="enlace" href="https://github.com/santiagomoralesmarek01-creator/vitrina" target="_blank" rel="noopener noreferrer">Código en GitHub</a>
             </p>
-            <p class="cruce">Las cartas son propuestas de diseño; <a href="#pedi-directo">Pedí Directo</a> es el sistema que las pone a funcionar en un local, con pedidos, QR y panel para el dueño.</p>
+            <p class="cruce">Las cartas son propuestas de diseño; <a href="#pedidos-interactivos">Pedidos Interactivos</a> es el sistema que las pone a funcionar en un local, con pedidos, QR y panel para el dueño.</p>
           </div>
         </div>
 
