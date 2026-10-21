@@ -588,9 +588,6 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; }
   font-size: 30px;
   line-height: 1.05;
 }
-.muestra-nombre a { text-decoration: none; }
-.muestra-nombre a span { font-family: var(--sans); font-size: 16px; color: var(--ink-soft); transition: color .2s; }
-.muestra-nombre a:hover span { color: var(--acento); }
 .muestra-desc { margin: 0 0 10px; font-size: 15px; line-height: 1.5; color: var(--ink-soft); }
 .muestra-detalle {
   list-style: none;
