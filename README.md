@@ -2,7 +2,7 @@
 
 Sitio estático (HTML + CSS + JS, sin build ni backend) con mis proyectos web,
 presentados como casos de estudio: A Mano, Miti-Miti, Pedidos Interactivos y Abajo del Colchón,
-más la colección **Vitrina** con 8 ejemplos de diseño (cartas, landings y apps).
+más la colección **Vitrina** con 16 ejemplos de diseño (cartas, landings y apps).
 
 ## Estructura
 
