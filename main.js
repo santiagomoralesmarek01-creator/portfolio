@@ -49,7 +49,7 @@ document.querySelector(".copiar-mail")?.addEventListener("click", async (ev) => 
 
 // Aparición suave al hacer scroll (sin animación si se pidió reducir movimiento).
 function revelar() {
-  const objetivos = document.querySelectorAll(".caso-head, .vitrina, .caso-cuerpo, .muestras, .sobre");
+  const objetivos = document.querySelectorAll(".caso-head, .vitrina, .caso-cuerpo, .muestra, .sobre");
   if (!("IntersectionObserver" in window) || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   objetivos.forEach((el) => el.classList.add("reveal"));
   const io = new IntersectionObserver(
@@ -67,6 +67,34 @@ function revelar() {
 }
 
 revelar();
+
+// Clips: en las vistas con armador de pedidos, al pasar el mouse se ve el pedido armándose.
+// En el celular (sin mouse) se reproducen solos cuando quedan a la vista.
+function clips() {
+  const videos = [...document.querySelectorAll(".clip")];
+  if (!videos.length || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const caja = (v) => v.closest(".muestra, .vitrina");
+  const play = (v) => {
+    v.currentTime = 0;
+    v.play().then(() => caja(v).classList.add("en-accion")).catch(() => {});
+  };
+  const parar = (v) => {
+    caja(v).classList.remove("en-accion");
+    v.pause();
+  };
+  videos.forEach((v) => {
+    caja(v).addEventListener("pointerenter", (e) => e.pointerType === "mouse" && play(v));
+    caja(v).addEventListener("pointerleave", (e) => e.pointerType === "mouse" && parar(v));
+  });
+  if (matchMedia("(hover: hover)").matches || !("IntersectionObserver" in window)) return;
+  const io = new IntersectionObserver(
+    (entradas) => entradas.forEach((e) => (e.isIntersecting ? play(e.target) : parar(e.target))),
+    { threshold: 0.6 }
+  );
+  videos.forEach((v) => io.observe(v));
+}
+
+clips();
 
 // Recorrido: una bola cae por el riel a medida que bajás. Rebota en cada marca de
 // proyecto y toma el color de la sección en la que estás. Con "reducir movimiento"
