@@ -27,6 +27,10 @@ más la colección **Vitrina** con 16 ejemplos de diseño (cartas, landings y ap
 - **Vitrina:** cada ejemplo es un `<li class="muestra">` dentro de la sección `#vitrina`, con `data-tipo` (`carta`, `landing` o `app`)
   para los filtros. Las capturas de página completa están en `img/vitrina/` (vienen de `public/previews/` del repo `vitrina`).
   Si sumás uno, actualizá también el número de cada filtro.
+- **Clips en acción:** las vistas con armador de pedidos (las dos de Pedidos Interactivos y las cartas con armador de la
+  Vitrina) llevan un `<video class="clip">` encima de la captura: al pasar el mouse se ve el pedido armándose, y en el
+  celular se reproduce solo cuando queda a la vista. Están en `img/clips/` (`.webm` y `.mp4`, ~8 s, sin audio); se graban
+  con Playwright haciendo clic en el armador de cada sitio. Con "reducir movimiento" no se muestran.
 - **Links de redes:** están en el footer de `index.html`.
 - **Dominio:** <https://www.santiagomoralesmarek.com.ar> (el dominio sin `www` redirige ahí). Si cambia, actualizá
   `og:url`, `og:image`, `twitter:image` y `canonical` en `index.html`.

@@ -331,6 +331,7 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; }
 }
 
 .navegador {
+  position: relative;
   border-radius: 12px;
   overflow: hidden;
   background: var(--paper);
@@ -571,6 +572,34 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; }
 .muestra:focus-within .muestra-vista img { object-position: 50% 100%; }
 @media (prefers-reduced-motion: reduce) {
   .muestra-vista img { transition: none; }
+}
+
+/* Clips: en las vistas con armador de pedidos, el armador en acción encima de la captura. */
+.muestra-vista { position: relative; }
+.clip {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: block;
+  width: 100%;
+  opacity: 0;
+  transition: opacity .35s ease;
+  pointer-events: none;
+}
+.muestra-vista .clip {
+  inset: 0;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 0;
+}
+@media (max-width: 639px) {
+  .muestra-vista .clip { object-position: 50% 35%; }
+}
+.en-accion .clip { opacity: 1; }
+/* Con clip, la captura no se recorre: se ve el armador. */
+.muestra:has(.clip):hover .muestra-vista img { object-position: 50% 0; }
+@media (prefers-reduced-motion: reduce) {
+  .clip { display: none; }
 }
 
 .muestra-tipo {
