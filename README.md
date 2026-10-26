@@ -13,6 +13,13 @@ más la colección **Vitrina** con 16 ejemplos de diseño (cartas, landings y ap
   y el **recorrido**: una bola que cae por un riel a medida que bajás, rebota en la marca de cada proyecto y toma
   su color. Las marcas se arman solas a partir de los `<article class="caso">` (número, título y `--acento`),
   así que un proyecto nuevo aparece en el riel sin tocar nada. Con "reducir movimiento" sigue al scroll sin rebotes.
+- `bola3d.js` — dibuja esa bola en 3D con three.js (esfera con luz y brillo que rueda, se estira, deja un anillo al
+  picar en cada proyecto y toma su color). Se carga cuando la página ya terminó; si no hay WebGL queda la bola plana.
+  `vendor/three.min.js` es three.js recortado a lo que se usa (r186, ~135 KB comprimido): para regenerarlo, armá con
+  esbuild un archivo que reexporte esas clases desde `three` (`--bundle --minify --format=esm`).
+- **Entrada:** la primera vez de cada visita, la bola cae, pica y queda como el punto de "MrK."; después sube la cortina
+  y la portada aparece en cascada (`.intro` en `index.html`, estilos en "Entrada" y `entrada()` en `main.js`).
+  Se saltea con un clic o una tecla y no se muestra con "reducir movimiento".
 - `img/` — capturas de cada proyecto en `.webp`: una de escritorio (1600 px) y una de celular (600 px).
 - `og.png` — vista previa al compartir el link (1200×630).
 - `robots.txt` y `sitemap.xml` — para buscadores. Cuando cambies algo grande, actualizá `<lastmod>` en el sitemap.
