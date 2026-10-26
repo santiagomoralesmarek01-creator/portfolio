@@ -856,9 +856,10 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; }
 @media print { .recorrido { display: none; } }
 
 /* ---------- Entrada ---------- */
-/* La bola cae, pica dos veces y queda como el punto de "MrK."; después la cortina sube.
-   Las animaciones esperan a la tipografía (clase .intro-lista, main.js); si el JS falla,
-   la cortina se va sola a los 4 s. */
+/* Escena 3D (intro3d.js): la esfera cae sobre la línea del texto, pica y queda como el punto de
+   "MrK."; la página se abre en círculo desde ahí y la esfera viaja a su lugar en el riel.
+   Si three.js no llega a tiempo, la misma idea en CSS (.intro-lista). Si el JS falla del todo,
+   la cortina se va sola a los 7 s. */
 .intro { display: none; }
 .con-intro .intro {
   position: fixed;
@@ -866,10 +867,23 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; }
   z-index: 100;
   display: grid;
   place-items: center;
+  animation: intro-seguro 0s linear 7s forwards;
+}
+.intro-fondo {
+  position: absolute;
+  inset: 0;
   background: var(--paper);
-  animation: intro-seguro 0s linear 4s forwards;
+}
+.intro-lienzo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
 }
 .intro-marca {
+  position: relative;
+  z-index: 1;
   margin: 0;
   font-family: var(--serif);
   font-size: clamp(72px, 14vw, 168px);
@@ -898,19 +912,23 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; }
   border-radius: 50%;
   opacity: 0;
 }
+.con-intro.intro-texto .intro-marca { animation: intro-marca .6s cubic-bezier(.2, .7, .2, 1) forwards; }
+/* En 3D el punto lo dibuja three.js: el del texto sólo marca dónde cae. */
+.intro-3d .intro-punto { visibility: hidden; transform: none; }
+.con-intro.intro-texto.intro-sale .intro-marca { animation: intro-marca .6s ease-out forwards, intro-marca-sale .5s ease-in forwards; }
+/* Versión CSS */
 .con-intro.intro-lista .intro { animation: intro-salida .6s cubic-bezier(.7, 0, .2, 1) 1.25s forwards; }
-.con-intro.intro-lista .intro-marca { animation: intro-marca .5s ease-out forwards, intro-marca-sale .5s ease-in 1.2s forwards; }
+.con-intro.intro-texto.intro-lista .intro-marca { animation: intro-marca .6s ease-out forwards, intro-marca-sale .5s ease-in 1.2s forwards; }
 .con-intro.intro-lista .intro-punto { animation: intro-cae .95s linear .2s forwards; }
 .con-intro.intro-lista .intro-punto::after { animation: intro-onda .7s ease-out .62s; }
-/* Al terminar, la portada aparece en cascada. */
-.entrada.intro-lista .hero > * { animation: intro-hero .8s cubic-bezier(.2, .7, .2, 1) both; }
-.entrada.intro-lista .hero > :nth-child(1) { animation-delay: 1.4s; }
-.entrada.intro-lista .hero > :nth-child(2) { animation-delay: 1.48s; }
-.entrada.intro-lista .hero > :nth-child(3) { animation-delay: 1.56s; }
-.entrada.intro-lista .hero > :nth-child(n+4) { animation-delay: 1.64s; }
+/* Al abrirse, la portada aparece en cascada. */
+.entrada.intro-fin .hero > * { animation: intro-hero .8s cubic-bezier(.2, .7, .2, 1) both; }
+.entrada.intro-fin .hero > :nth-child(2) { animation-delay: .08s; }
+.entrada.intro-fin .hero > :nth-child(3) { animation-delay: .16s; }
+.entrada.intro-fin .hero > :nth-child(n+4) { animation-delay: .24s; }
 
-@keyframes intro-marca { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
-@keyframes intro-marca-sale { to { opacity: 0; transform: translateY(-24px); } }
+@keyframes intro-marca { from { opacity: 0; transform: translateY(14px); filter: blur(6px); } to { opacity: 1; transform: none; filter: none; } }
+@keyframes intro-marca-sale { to { opacity: 0; transform: translateY(-28px); filter: blur(4px); } }
 @keyframes intro-cae {
   0% { transform: translateY(-80vh) scale(.9, 1.15); animation-timing-function: cubic-bezier(.55, 0, 1, .45); }
   44% { transform: translateY(0) scale(1.3, .72); animation-timing-function: cubic-bezier(0, .55, .45, 1); }
