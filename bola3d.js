@@ -1,4 +1,4 @@
-// Bola 3D del recorrido: la misma bola de main.js, dibujada con three.js.
+// Bola 3D del recorrido: la misma bola de main.js, dibujada con three.js (mate, como la entrada).
 // Rueda a medida que baja, se estira con la velocidad, deja un anillo al picar en
 // cada proyecto y toma su color. Si no hay WebGL, queda la bola plana de siempre.
 
@@ -29,11 +29,11 @@ async function iniciar() {
   const escena = new THREE.Scene();
   const camara = new THREE.OrthographicCamera(-ANCHO / 2, ANCHO / 2, 0, -100, -200, 200);
 
-  escena.add(new THREE.HemisphereLight(0xffffff, 0x8a8478, 1.6));
-  const luz = new THREE.DirectionalLight(0xffffff, 2.4);
+  escena.add(new THREE.HemisphereLight(0xffffff, 0x8a8478, 1.5));
+  const luz = new THREE.DirectionalLight(0xffffff, 1.3);
   luz.position.set(-2, 3, 4);
   escena.add(luz);
-  const contraluz = new THREE.DirectionalLight(0xffffff, 0.9);
+  const contraluz = new THREE.DirectionalLight(0xffffff, 0.35);
   contraluz.position.set(3, -2, 1);
   escena.add(contraluz);
 
@@ -52,9 +52,7 @@ async function iniciar() {
   const colorDestino = new THREE.Color();
   const material = new THREE.MeshPhysicalMaterial({
     map: textura,
-    roughness: 0.38,
-    clearcoat: 0.8,
-    clearcoatRoughness: 0.25,
+    roughness: 0.75,
   });
   const color = material.color; // se va acercando a colorDestino
   const cuerpo = new THREE.Group(); // se estira en vertical

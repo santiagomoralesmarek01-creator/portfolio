@@ -1,4 +1,4 @@
-// Entrada en 3D: una esfera cae sobre la línea de "MrK", pica con su sombra y anillos en el
+// Entrada en 3D: una esfera mate cae sobre la línea de "MrK", pica con su sombra y anillos en el
 // piso, y queda como el punto. Después la página se abre en círculo desde la esfera, que
 // viaja hasta su lugar en el riel del recorrido. main.js la arranca; devuelve false si no hay WebGL.
 import * as T from "./vendor/three.min.js";
@@ -37,18 +37,18 @@ export function correr(intro, { alSalir, alAbrir, alTerminar }) {
   const H = innerHeight;
   renderer.setPixelRatio(Math.min(devicePixelRatio, 1.75));
   renderer.setSize(W, H, false);
-  renderer.toneMapping = T.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.05;
   renderer.domElement.className = "intro-lienzo";
   intro.append(renderer.domElement);
 
+  // La misma luz suave que la bola del recorrido (bola3d.js): el color queda igual al de la "K".
   const escena = new T.Scene();
-  const pmrem = new T.PMREMGenerator(renderer);
-  const ambiente = pmrem.fromScene(new T.RoomEnvironment(), 0.04).texture;
-  escena.environment = ambiente;
-  const luz = new T.DirectionalLight(0xffffff, 1.6);
-  luz.position.set(-3, 5, 4);
+  escena.add(new T.HemisphereLight(0xffffff, 0x8a8478, 1.5));
+  const luz = new T.DirectionalLight(0xffffff, 1.3);
+  luz.position.set(-2, 3, 4);
   escena.add(luz);
+  const contraluz = new T.DirectionalLight(0xffffff, 0.35);
+  contraluz.position.set(3, -2, 1);
+  escena.add(contraluz);
 
   // Cámara apenas por encima del piso: los anillos se ven como elipses.
   const camara = new T.PerspectiveCamera(26, W / H, 0.1, 200);
@@ -82,10 +82,8 @@ export function correr(intro, { alSalir, alAbrir, alTerminar }) {
   const color = new T.Color(getComputedStyle(raiz).getPropertyValue("--hi").trim() || "#c8401f");
   const material = new T.MeshPhysicalMaterial({
     color,
-    roughness: 0.2,
-    clearcoat: 1,
-    clearcoatRoughness: 0.05,
-    envMapIntensity: 1.1,
+    // Mate, como el resto de la página: luz suave y sin reflejos de vidrio.
+    roughness: 0.75,
   });
   const cuerpo = new T.Group();
   const esfera = new T.Mesh(new T.SphereGeometry(1, 96, 64), material);
@@ -151,8 +149,6 @@ export function correr(intro, { alSalir, alAbrir, alTerminar }) {
     cerrada = true;
     renderer.setAnimationLoop(null);
     renderer.domElement.remove();
-    ambiente.dispose();
-    pmrem.dispose();
     renderer.dispose();
     raiz.classList.remove("intro-3d");
   }
