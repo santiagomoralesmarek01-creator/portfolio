@@ -15,22 +15,40 @@ botonTema?.addEventListener("click", () => {
   } catch {}
 });
 
-// Entrada: arranca cuando está la tipografía (o a los 700 ms), se saltea con un clic o una
-// tecla y sólo se ve una vez por visita.
+// Entrada: muestra "MrK" apenas está la tipografía y, si three.js llega a tiempo, corre la
+// escena 3D (intro3d.js); si no, la versión CSS. Se saltea con un clic o una tecla y sólo
+// se ve una vez por visita.
 function entrada() {
   if (!raiz.classList.contains("con-intro")) return;
   try {
     sessionStorage.setItem("entrada", "1");
   } catch {}
   const intro = document.querySelector(".intro");
-  const terminar = () => raiz.classList.remove("con-intro");
+  const espera = (ms) => new Promise((r) => setTimeout(r, ms));
+  let terminada = false;
+  const abrir = () => raiz.classList.add("intro-fin");
+  const terminar = () => {
+    if (terminada) return;
+    terminada = true;
+    abrir();
+    raiz.classList.remove("con-intro");
+  };
   const saltear = () => {
     raiz.classList.remove("entrada");
     terminar();
   };
-  Promise.race([document.fonts?.ready, new Promise((r) => setTimeout(r, 700))]).then(() => {
+  const plana = () => {
     raiz.classList.add("intro-lista");
+    setTimeout(abrir, 1300);
     setTimeout(terminar, 1900);
+  };
+  const fuentes = Promise.race([document.fonts?.ready, espera(700)]);
+  const escena = Promise.race([import("./intro3d.js"), espera(1500).then(() => null)]).catch(() => null);
+  fuentes.then(() => raiz.classList.add("intro-texto"));
+  Promise.all([fuentes, escena]).then(([, modulo]) => {
+    if (terminada) return;
+    const ok = modulo?.correr(intro, { alSalir: () => raiz.classList.add("intro-sale"), alAbrir: abrir, alTerminar: terminar });
+    if (!ok) plana();
   });
   intro?.addEventListener("pointerdown", saltear, { once: true });
   addEventListener("keydown", saltear, { once: true });

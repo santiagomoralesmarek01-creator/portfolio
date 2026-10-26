@@ -60,6 +60,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="modulepreload" href="vendor/three.min.js" />
   <script>
     // Aplicar el tema guardado antes de pintar, para que no parpadee.
     try {
@@ -77,6 +78,7 @@
 <body>
   <!-- Entrada: cae la bola y queda como el punto de MrK; después se abre la página -->
   <div class="intro" aria-hidden="true">
+    <div class="intro-fondo"></div>
     <p class="intro-marca">Mr<em>K</em><span class="intro-punto"></span></p>
   </div>
   <a class="skip" href="#trabajos">Saltar a los proyectos</a>
