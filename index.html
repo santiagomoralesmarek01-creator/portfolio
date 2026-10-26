@@ -66,9 +66,19 @@
       const t = localStorage.getItem("tema");
       if (t === "claro" || t === "oscuro") document.documentElement.dataset.tema = t;
     } catch {}
+    // Entrada: la primera vez de cada visita, salvo que se pida reducir movimiento (main.js la termina).
+    try {
+      if (!sessionStorage.getItem("entrada") && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        document.documentElement.classList.add("con-intro", "entrada");
+      }
+    } catch {}
   </script>
 </head>
 <body>
+  <!-- Entrada: cae la bola y queda como el punto de MrK; después se abre la página -->
+  <div class="intro" aria-hidden="true">
+    <p class="intro-marca">Mr<em>K</em><span class="intro-punto"></span></p>
+  </div>
   <a class="skip" href="#trabajos">Saltar a los proyectos</a>
 
   <header class="topbar">
@@ -540,5 +550,6 @@
   </footer>
 
   <script src="main.js"></script>
+  <script type="module" src="bola3d.js"></script>
 </body>
 </html>

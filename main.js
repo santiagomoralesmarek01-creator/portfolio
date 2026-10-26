@@ -15,6 +15,29 @@ botonTema?.addEventListener("click", () => {
   } catch {}
 });
 
+// Entrada: arranca cuando está la tipografía (o a los 700 ms), se saltea con un clic o una
+// tecla y sólo se ve una vez por visita.
+function entrada() {
+  if (!raiz.classList.contains("con-intro")) return;
+  try {
+    sessionStorage.setItem("entrada", "1");
+  } catch {}
+  const intro = document.querySelector(".intro");
+  const terminar = () => raiz.classList.remove("con-intro");
+  const saltear = () => {
+    raiz.classList.remove("entrada");
+    terminar();
+  };
+  Promise.race([document.fonts?.ready, new Promise((r) => setTimeout(r, 700))]).then(() => {
+    raiz.classList.add("intro-lista");
+    setTimeout(terminar, 1900);
+  });
+  intro?.addEventListener("pointerdown", saltear, { once: true });
+  addEventListener("keydown", saltear, { once: true });
+}
+
+entrada();
+
 // Año actual.
 const anio = String(new Date().getFullYear());
 document.querySelectorAll("#year, #year-hero").forEach((el) => (el.textContent = anio));
@@ -144,6 +167,9 @@ function recorrido() {
   function pintar(estiramiento) {
     const s = 1 + estiramiento;
     bola.style.transform = `translate3d(0, ${y}px, 0) scale(${1 / Math.sqrt(s)}, ${s})`;
+    // La bola 3D (bola3d.js) dibuja lo mismo con three.js.
+    nav.estadoBola = { y, estiramiento };
+    nav.dispatchEvent(new CustomEvent("bola"));
   }
 
   function colorear(p) {
@@ -152,6 +178,7 @@ function recorrido() {
     if (i === tramoActual) return;
     tramoActual = i;
     nav.style.setProperty("--bola-color", i < 0 ? "var(--hi)" : tramos[i].color);
+    nav.dispatchEvent(new CustomEvent("color"));
     marcas.forEach((m) => m.setAttribute("aria-current", String(i >= 0 && tramos[i].marca === m)));
   }
 
@@ -172,7 +199,10 @@ function recorrido() {
     if (v > 1) {
       for (const t of tramos) {
         const ty = t.desde * alto;
-        if (antes < ty && y >= ty) v *= -0.35;
+        if (antes < ty && y >= ty) {
+          v *= -0.35;
+          nav.dispatchEvent(new CustomEvent("bote", { detail: { y: ty } }));
+        }
       }
     }
     pintar(Math.min(0.45, Math.abs(v) / 30));
