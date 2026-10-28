@@ -74,6 +74,9 @@
       }
     } catch {}
   </script>
+  <!-- Vercel Web Analytics: cuenta las visitas (sin cookies); el script se inserta desde acá para que Vite no intente empaquetarlo. Se activa en el panel de Vercel → Analytics. -->
+  <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+  <script>(function () { var s = document.createElement("script"); s.defer = true; s.src = "/_vercel/insights/script.js"; document.head.appendChild(s); })();</script>
 </head>
 <body>
   <!-- Entrada: cae la bola y queda como el punto de MrK; después se abre la página -->
@@ -120,7 +123,7 @@
           <li><a href="#a-mano"><span class="indice-num">02</span><span class="indice-nombre">A Mano</span><span class="indice-tipo">Recetas con IA</span></a></li>
           <li><a href="#miti-miti"><span class="indice-num">03</span><span class="indice-nombre">Miti-Miti</span><span class="indice-tipo">Gastos compartidos</span></a></li>
           <li><a href="#abajo-del-colchon"><span class="indice-num">04</span><span class="indice-nombre">Abajo del Colchón</span><span class="indice-tipo">Finanzas personales</span></a></li>
-          <li><a href="#vitrina"><span class="indice-num">05</span><span class="indice-nombre">Vitrina</span><span class="indice-tipo">16 ejemplos de diseño</span></a></li>
+          <li><a href="#vitrina"><span class="indice-num">05</span><span class="indice-nombre">Vitrina</span><span class="indice-tipo">20 ejemplos de diseño</span></a></li>
         </ol>
       </div>
     </section>
@@ -330,7 +333,7 @@
 
         <div class="caso-cuerpo">
           <dl class="cifras">
-            <div><dt>Ejemplos</dt><dd>16</dd></div>
+            <div><dt>Ejemplos</dt><dd>20</dd></div>
             <div><dt>Diseños repetidos</dt><dd>0</dd></div>
             <div><dt>Familias tipográficas</dt><dd>26</dd></div>
           </dl>
@@ -347,13 +350,49 @@
         </div>
 
         <div class="filtros" role="group" aria-label="Filtrar ejemplos por tipo">
-          <button type="button" data-filtro="todos" aria-pressed="true">Todos <span>16</span></button>
-          <button type="button" data-filtro="carta" aria-pressed="false">Cartas <span>9</span></button>
+          <button type="button" data-filtro="todos" aria-pressed="true">Todos <span>20</span></button>
+          <button type="button" data-filtro="carta" aria-pressed="false">Cartas <span>12</span></button>
           <button type="button" data-filtro="landing" aria-pressed="false">Landings <span>3</span></button>
-          <button type="button" data-filtro="app" aria-pressed="false">Apps <span>4</span></button>
+          <button type="button" data-filtro="app" aria-pressed="false">Apps <span>5</span></button>
         </div>
 
         <ul class="muestras">
+          <li class="muestra" data-tipo="carta">
+            <div class="muestra-vista" aria-hidden="true">
+              <img src="img/vitrina/repulgue.webp" width="640" height="2564" loading="lazy" alt="" />
+            </div>
+            <p class="muestra-tipo">Carta · Casa de empanadas</p>
+            <h3 class="muestra-nombre">Pellizco</h3>
+            <p class="muestra-desc">Risografía a dos tintas, azul de imprenta y coral sobre papel crudo, con grano y registro corrido.</p>
+            <ul class="muestra-detalle" aria-label="Interacciones"><li>El código del repulgue y el juego “¿Adiviná qué gusto es?”</li><li>Bolsa de papel que se llena con el mejor precio</li><li>Calculadora para la juntada y horno en vivo</li></ul>
+          </li>
+          <li class="muestra" data-tipo="app">
+            <div class="muestra-vista" aria-hidden="true">
+              <img src="img/vitrina/alpaso.webp" width="640" height="2096" loading="lazy" alt="" />
+            </div>
+            <p class="muestra-tipo">App · Cafetería para llevar</p>
+            <h3 class="muestra-nombre">Al Paso</h3>
+            <p class="muestra-desc">Pop urbana en azul eléctrico, rosa chicle y amarillo, para pedir al paso desde el celular.</p>
+            <ul class="muestra-detalle" aria-label="Interacciones"><li>Vaso que se llena por capas en vivo</li><li>Las de la casa cargan el armador</li><li>Retiro con franja horaria</li></ul>
+          </li>
+          <li class="muestra" data-tipo="carta">
+            <div class="muestra-vista" aria-hidden="true">
+              <img src="img/vitrina/tueste.webp" width="640" height="2524" loading="lazy" alt="" />
+            </div>
+            <p class="muestra-tipo">Carta · Barra de café de especialidad</p>
+            <h3 class="muestra-nombre">Cobre</h3>
+            <p class="muestra-desc">Oscura y editorial, carbón, crema y cobre, con la curva de tueste que se dibuja sola.</p>
+            <ul class="muestra-detalle" aria-label="Interacciones"><li>“¿Cómo lo tomás?” que recomienda café y método</li><li>Rueda de sabores que marca los orígenes</li><li>Granos con molienda a medida</li></ul>
+          </li>
+          <li class="muestra" data-tipo="carta">
+            <div class="muestra-vista" aria-hidden="true">
+              <img src="img/vitrina/vidriera.webp" width="640" height="2092" loading="lazy" alt="" />
+            </div>
+            <p class="muestra-tipo">Carta · Pastelería y café</p>
+            <h3 class="muestra-nombre">Clotilde</h3>
+            <p class="muestra-desc">Toldo pistacho, fachada frambuesa y letras doradas, con la vidriera de tortas que gira.</p>
+            <ul class="muestra-detalle" aria-label="Interacciones"><li>Vidriera giratoria de porciones</li><li>Caja de masas que se llena y se cierra con moño</li><li>Torta con dedicatoria y retiro con 48 h</li></ul>
+          </li>
           <li class="muestra" data-tipo="carta">
             <div class="muestra-vista" aria-hidden="true">
               <img src="img/vitrina/bodegon.webp" width="640" height="1817" loading="lazy" alt="" />
