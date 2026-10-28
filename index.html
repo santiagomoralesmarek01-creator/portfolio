@@ -60,15 +60,27 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="modulepreload" href="vendor/three.min.js" />
   <script>
     // Aplicar el tema guardado antes de pintar, para que no parpadee.
     try {
       const t = localStorage.getItem("tema");
       if (t === "claro" || t === "oscuro") document.documentElement.dataset.tema = t;
     } catch {}
+    // Entrada: la primera vez de cada visita, salvo que se pida reducir movimiento (main.js la termina).
+    try {
+      if (!sessionStorage.getItem("entrada") && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        document.documentElement.classList.add("con-intro", "entrada");
+      }
+    } catch {}
   </script>
 </head>
 <body>
+  <!-- Entrada: cae la bola y queda como el punto de MrK; después se abre la página -->
+  <div class="intro" aria-hidden="true">
+    <div class="intro-fondo"></div>
+    <p class="intro-marca">Mr<em>K</em><span class="intro-punto"></span></p>
+  </div>
   <a class="skip" href="#trabajos">Saltar a los proyectos</a>
 
   <header class="topbar">
@@ -128,6 +140,7 @@
           <div class="navegador">
             <div class="navegador-barra" aria-hidden="true"><i></i><i></i><i></i><span>carta-local-pi.vercel.app/la-esquina</span></div>
             <img src="img/pedidos-esquina.webp" width="1600" height="1000" loading="lazy" alt="“Armá tu docena” en la web de La Esquina, local de demostración: se tocan los gustos y la caja se llena con doce empanadas de colores, con el total de $14.000 y lo que se ahorra." />
+            <video class="clip" muted loop playsinline preload="none" aria-hidden="true"><source src="img/clips/pedidos-esquina.webm" type="video/webm" /><source src="img/clips/pedidos-esquina.mp4" type="video/mp4" /></video>
           </div>
           <div class="telefono">
             <img src="img/pedidos-esquina-movil.webp" width="600" height="1299" loading="lazy" alt="“Armá tu docena” en el celular: la caja completa, el precio y el botón Sumar al pedido." />
@@ -138,11 +151,12 @@
           <div class="navegador">
             <div class="navegador-barra" aria-hidden="true"><i></i><i></i><i></i><span>cafe-almendra.vercel.app</span></div>
             <img src="img/pedidos-cafe.webp" width="1600" height="1000" loading="lazy" alt="“Armá tu desayuno” en la web de Café Almendra, local de demostración: se elige la bebida y el acompañamiento, se dibujan en la mesa y el resumen muestra el precio con el 10 % de descuento." />
+            <video class="clip" muted loop playsinline preload="none" aria-hidden="true"><source src="img/clips/pedidos-cafe.webm" type="video/webm" /><source src="img/clips/pedidos-cafe.mp4" type="video/mp4" /></video>
           </div>
           <div class="telefono">
             <img src="img/pedidos-cafe-movil.webp" width="600" height="1299" loading="lazy" alt="“Armá tu desayuno” en el celular: cortado y medialuna en la mesa, con el resumen del pedido y el ahorro." />
           </div>
-          <figcaption>Dos locales de demostración con el mismo motor y diseños distintos: arriba se arma la docena, abajo el desayuno.</figcaption>
+          <figcaption>Dos locales de demostración con el mismo motor y diseños distintos: arriba se arma la docena, abajo el desayuno. Pasá el mouse para verlos en acción.</figcaption>
         </figure>
 
         <div class="caso-cuerpo">
@@ -326,7 +340,6 @@
               <li>TypeScript</li><li>Vite</li><li>CSS a mano</li><li>SVG</li><li>Vitest</li><li>GitHub Actions</li>
             </ul>
             <p class="enlaces">
-              <a class="boton" href="https://vitrina-iota-ten.vercel.app/" target="_blank" rel="noopener noreferrer">Ver la galería <span aria-hidden="true">↗</span></a>
               <a class="enlace" href="https://github.com/santiagomoralesmarek01-creator/vitrina" target="_blank" rel="noopener noreferrer">Código en GitHub</a>
             </p>
             <p class="cruce">Las cartas son propuestas de diseño; <a href="#pedidos-interactivos">Pedidos Interactivos</a> es el sistema que las pone a funcionar en un local, con pedidos, QR y panel para el dueño.</p>
@@ -342,151 +355,158 @@
 
         <ul class="muestras">
           <li class="muestra" data-tipo="carta">
-            <a class="muestra-vista" href="https://vitrina-iota-ten.vercel.app/kaze/" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
-              <img src="img/vitrina/kaze.webp" width="640" height="2234" loading="lazy" alt="" />
-            </a>
-            <p class="muestra-tipo">Carta · Sushi y cocina nikkei</p>
-            <h3 class="muestra-nombre"><a href="https://vitrina-iota-ten.vercel.app/kaze/" target="_blank" rel="noopener noreferrer">Kaze <span aria-hidden="true">↗</span></a></h3>
-            <p class="muestra-desc">Papel washi, tinta sumi y un sello bermellón: editorial japonés con mucho aire.</p>
-            <ul class="muestra-detalle" aria-label="Interacciones"><li>Combinado que llena la bandeja pieza por pieza</li><li>Filtros crudo, cocido y veggie</li><li>Omakase con lugares disponibles</li></ul>
-          </li>
-          <li class="muestra" data-tipo="app">
-            <a class="muestra-vista" href="https://vitrina-iota-ten.vercel.app/domingo/" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
-              <img src="img/vitrina/domingo.webp" width="640" height="2413" loading="lazy" alt="" />
-            </a>
-            <p class="muestra-tipo">App · Brunch y reservas</p>
-            <h3 class="muestra-nombre"><a href="https://vitrina-iota-ten.vercel.app/domingo/" target="_blank" rel="noopener noreferrer">Domingo <span aria-hidden="true">↗</span></a></h3>
-            <p class="muestra-desc">Soleada y relajada, en salvia, crema y durazno.</p>
-            <ul class="muestra-detalle" aria-label="Interacciones"><li>Reserva eligiendo la mesa en el plano del salón</li><li>Carta dulce y salada</li><li>Combos de brunch para compartir</li></ul>
-          </li>
-          <li class="muestra" data-tipo="landing">
-            <a class="muestra-vista" href="https://vitrina-iota-ten.vercel.app/raiz/" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
-              <img src="img/vitrina/raiz.webp" width="640" height="4190" loading="lazy" alt="" />
-            </a>
-            <p class="muestra-tipo">Landing · Restaurante de autor</p>
-            <h3 class="muestra-nombre"><a href="https://vitrina-iota-ten.vercel.app/raiz/" target="_blank" rel="noopener noreferrer">Raíz <span aria-hidden="true">↗</span></a></h3>
-            <p class="muestra-desc">Alta cocina en blanco hueso y carbón, con dibujos de una sola línea.</p>
-            <ul class="muestra-detalle" aria-label="Interacciones"><li>Menú de siete pasos que se revela al bajar</li><li>Maridaje y versiones vegetariana y sin TACC</li><li>Reserva con seña</li></ul>
-          </li>
-          <li class="muestra" data-tipo="carta">
-            <a class="muestra-vista" href="https://vitrina-iota-ten.vercel.app/bunker/" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
-              <img src="img/vitrina/bunker.webp" width="640" height="2018" loading="lazy" alt="" />
-            </a>
-            <p class="muestra-tipo">Carta · Smash burgers</p>
-            <h3 class="muestra-nombre"><a href="https://vitrina-iota-ten.vercel.app/bunker/" target="_blank" rel="noopener noreferrer">Bunker <span aria-hidden="true">↗</span></a></h3>
-            <p class="muestra-desc">Callejera y neo-brutalista: mostaza, negro, ketchup y sombras duras.</p>
-            <ul class="muestra-detalle" aria-label="Interacciones"><li>Burger que crece capa por capa</li><li>Medidor de altura y calorías</li><li>Las de la casa cargan en el armador</li></ul>
-          </li>
-          <li class="muestra" data-tipo="app">
-            <a class="muestra-vista" href="https://vitrina-iota-ten.vercel.app/miga/" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
-              <img src="img/vitrina/miga.webp" width="640" height="2834" loading="lazy" alt="" />
-            </a>
-            <p class="muestra-tipo">App · Tortas por encargo</p>
-            <h3 class="muestra-nombre"><a href="https://vitrina-iota-ten.vercel.app/miga/" target="_blank" rel="noopener noreferrer">Miga <span aria-hidden="true">↗</span></a></h3>
-            <p class="muestra-desc">Pastelería editorial en rosa y chocolate, con la torta dibujada en vivo.</p>
-            <ul class="muestra-detalle" aria-label="Interacciones"><li>Configurador que dibuja la torta</li><li>Calendario de retiro con 48 h de aviso</li><li>Seña del 50 % y pedido por WhatsApp</li></ul>
-          </li>
-          <li class="muestra" data-tipo="carta">
-            <a class="muestra-vista" href="https://vitrina-iota-ten.vercel.app/lupulo/" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
-              <img src="img/vitrina/lupulo.webp" width="640" height="2160" loading="lazy" alt="" />
-            </a>
-            <p class="muestra-tipo">Carta · Taproom de cerveza artesanal</p>
-            <h3 class="muestra-nombre"><a href="https://vitrina-iota-ten.vercel.app/lupulo/" target="_blank" rel="noopener noreferrer">Lúpulo <span aria-hidden="true">↗</span></a></h3>
-            <p class="muestra-desc">Etiqueta de cerveza artesanal: papel kraft, tinta negra y cobre.</p>
-            <ul class="muestra-detalle" aria-label="Interacciones"><li>Vasos con el color real de cada cerveza</li><li>Filtros por amargor y alcohol</li><li>Vuelo de degustación de 4 cervezas</li></ul>
-          </li>
-          <li class="muestra" data-tipo="carta">
-            <a class="muestra-vista" href="https://vitrina-iota-ten.vercel.app/polo/" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
-              <img src="img/vitrina/polo.webp" width="640" height="1767" loading="lazy" alt="" />
-            </a>
-            <p class="muestra-tipo">Carta · Heladería artesanal</p>
-            <h3 class="muestra-nombre"><a href="https://vitrina-iota-ten.vercel.app/polo/" target="_blank" rel="noopener noreferrer">Polo Sur <span aria-hidden="true">↗</span></a></h3>
-            <p class="muestra-desc">Pastel, redondeada y juguetona, con un pingüino de mascota.</p>
-            <ul class="muestra-detalle" aria-label="Interacciones"><li>Bochas que se apilan con el color de cada sabor</li><li>Envases con límite de sabores</li><li>Filtros sin TACC y veganos</li></ul>
-          </li>
-          <li class="muestra" data-tipo="carta">
-            <a class="muestra-vista" href="https://vitrina-iota-ten.vercel.app/nortena/" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
-              <img src="img/vitrina/nortena.webp" width="640" height="1829" loading="lazy" alt="" />
-            </a>
-            <p class="muestra-tipo">Carta · Empanadas salteñas y tucumanas</p>
-            <h3 class="muestra-nombre"><a href="https://vitrina-iota-ten.vercel.app/nortena/" target="_blank" rel="noopener noreferrer">La Norteña <span aria-hidden="true">↗</span></a></h3>
-            <p class="muestra-desc">Colorida y artesanal, con guardas de aguayo hechas en CSS.</p>
-            <ul class="muestra-detalle" aria-label="Interacciones"><li>Docena mixta que llena la bandeja</li><li>Mejor precio entre docenas, medias y sueltas</li><li>Zonas de envío por barrio</li></ul>
-          </li>
-          <li class="muestra" data-tipo="carta">
-            <a class="muestra-vista" href="https://vitrina-iota-ten.vercel.app/bodegon/" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+            <div class="muestra-vista" aria-hidden="true">
               <img src="img/vitrina/bodegon.webp" width="640" height="1817" loading="lazy" alt="" />
-            </a>
+            </div>
             <p class="muestra-tipo">Carta · Carta de parrilla</p>
-            <h3 class="muestra-nombre"><a href="https://vitrina-iota-ten.vercel.app/bodegon/" target="_blank" rel="noopener noreferrer">Bodegón Don Ernesto <span aria-hidden="true">↗</span></a></h3>
+            <h3 class="muestra-nombre">Bodegón Don Ernesto</h3>
             <p class="muestra-desc">Pizarra y papel madera, como la carta de siempre pero en el celular.</p>
             <ul class="muestra-detalle" aria-label="Interacciones"><li>Pestañas que siguen el scroll</li><li>Filtros sin TACC y veggie</li><li>Pedido con total y envío por WhatsApp</li></ul>
           </li>
           <li class="muestra" data-tipo="carta">
-            <a class="muestra-vista" href="https://vitrina-iota-ten.vercel.app/nube/" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+            <div class="muestra-vista" aria-hidden="true">
               <img src="img/vitrina/nube.webp" width="640" height="1033" loading="lazy" alt="" />
-            </a>
+            </div>
             <p class="muestra-tipo">Carta · Carta de café de especialidad</p>
-            <h3 class="muestra-nombre"><a href="https://vitrina-iota-ten.vercel.app/nube/" target="_blank" rel="noopener noreferrer">nube <span aria-hidden="true">↗</span></a></h3>
+            <h3 class="muestra-nombre">nube</h3>
             <p class="muestra-desc">Minimalista y luminosa, con dibujos de línea y modo noche.</p>
             <ul class="muestra-detalle" aria-label="Interacciones"><li>Tarjetas de origen que se dan vuelta</li><li>Precios según tamaño y leche</li><li>Modo día y noche</li></ul>
           </li>
           <li class="muestra" data-tipo="carta">
-            <a class="muestra-vista" href="https://vitrina-iota-ten.vercel.app/tano/" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+            <div class="muestra-vista" aria-hidden="true">
               <img src="img/vitrina/tano.webp" width="640" height="1272" loading="lazy" alt="" />
-            </a>
+              <video class="clip" muted loop playsinline preload="none" aria-hidden="true"><source src="img/clips/tano.webm" type="video/webm" /><source src="img/clips/tano.mp4" type="video/mp4" /></video>
+            </div>
             <p class="muestra-tipo">Carta · Pizzería napolitana</p>
-            <h3 class="muestra-nombre"><a href="https://vitrina-iota-ten.vercel.app/tano/" target="_blank" rel="noopener noreferrer">Tano <span aria-hidden="true">↗</span></a></h3>
+            <h3 class="muestra-nombre">Tano</h3>
             <p class="muestra-desc">Cartel de neón viejo y mantel a cuadros, con una pizza que se arma en pantalla.</p>
             <ul class="muestra-detalle" aria-label="Interacciones"><li>Armador de pizza en SVG</li><li>Mitad y mitad</li><li>Precio en vivo y pedido</li></ul>
           </li>
           <li class="muestra" data-tipo="carta">
-            <a class="muestra-vista" href="https://vitrina-iota-ten.vercel.app/neblina/" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+            <div class="muestra-vista" aria-hidden="true">
               <img src="img/vitrina/neblina.webp" width="640" height="1635" loading="lazy" alt="" />
-            </a>
+            </div>
             <p class="muestra-tipo">Carta · Bar de tragos de autor</p>
-            <h3 class="muestra-nombre"><a href="https://vitrina-iota-ten.vercel.app/neblina/" target="_blank" rel="noopener noreferrer">Neblina <span aria-hidden="true">↗</span></a></h3>
+            <h3 class="muestra-nombre">Neblina</h3>
             <p class="muestra-desc">Art déco nocturno, dorado sobre negro, con cuenta regresiva del happy hour.</p>
             <ul class="muestra-detalle" aria-label="Interacciones"><li>Test que te recomienda un trago</li><li>Perfil de sabor en radar</li><li>Happy hour en vivo</li></ul>
           </li>
           <li class="muestra" data-tipo="landing">
-            <a class="muestra-vista" href="https://vitrina-iota-ten.vercel.app/pulso/" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+            <div class="muestra-vista" aria-hidden="true">
               <img src="img/vitrina/pulso.webp" width="640" height="1898" loading="lazy" alt="" />
-            </a>
+            </div>
             <p class="muestra-tipo">Landing · Estudio de yoga y pilates</p>
-            <h3 class="muestra-nombre"><a href="https://vitrina-iota-ten.vercel.app/pulso/" target="_blank" rel="noopener noreferrer">Pulso <span aria-hidden="true">↗</span></a></h3>
+            <h3 class="muestra-nombre">Pulso</h3>
             <p class="muestra-desc">Formas orgánicas que respiran y tipografía serif en cursiva.</p>
             <ul class="muestra-detalle" aria-label="Interacciones"><li>Respiración guiada</li><li>Horarios filtrables con reserva</li><li>Carrusel y planes con descuento</li></ul>
           </li>
           <li class="muestra" data-tipo="landing">
-            <a class="muestra-vista" href="https://vitrina-iota-ten.vercel.app/volta/" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+            <div class="muestra-vista" aria-hidden="true">
               <img src="img/vitrina/volta.webp" width="640" height="1786" loading="lazy" alt="" />
-            </a>
+            </div>
             <p class="muestra-tipo">Landing · Bicis eléctricas</p>
-            <h3 class="muestra-nombre"><a href="https://vitrina-iota-ten.vercel.app/volta/" target="_blank" rel="noopener noreferrer">Volta <span aria-hidden="true">↗</span></a></h3>
+            <h3 class="muestra-nombre">Volta</h3>
             <p class="muestra-desc">Oscura y tecnológica, con acento neón que cambia con tu elección.</p>
             <ul class="muestra-detalle" aria-label="Interacciones"><li>Configurador de color y modelo</li><li>Calculadora de ahorro</li><li>Animaciones al bajar</li></ul>
           </li>
           <li class="muestra" data-tipo="app">
-            <a class="muestra-vista" href="https://vitrina-iota-ten.vercel.app/filo/" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
-              <img src="img/vitrina/filo.webp" width="640" height="400" loading="lazy" alt="" style="object-position: 0 50%" />
-            </a>
+            <div class="muestra-vista" aria-hidden="true">
+              <img src="img/vitrina/filo.webp" width="640" height="1073" loading="lazy" alt="" />
+            </div>
             <p class="muestra-tipo">App · Turnero de barbería</p>
-            <h3 class="muestra-nombre"><a href="https://vitrina-iota-ten.vercel.app/filo/" target="_blank" rel="noopener noreferrer">Filo <span aria-hidden="true">↗</span></a></h3>
+            <h3 class="muestra-nombre">Filo</h3>
             <p class="muestra-desc">Reserva en cinco pasos con horarios ocupados de verdad y resumen siempre a la vista.</p>
             <ul class="muestra-detalle" aria-label="Interacciones"><li>Reserva paso a paso</li><li>Mis turnos guardados</li><li>Evento para el calendario (.ics)</li></ul>
           </li>
           <li class="muestra" data-tipo="app">
-            <a class="muestra-vista" href="https://vitrina-iota-ten.vercel.app/mercadito/" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+            <div class="muestra-vista" aria-hidden="true">
               <img src="img/vitrina/mercadito.webp" width="640" height="1078" loading="lazy" alt="" />
-            </a>
+            </div>
             <p class="muestra-tipo">App · Panel de ventas</p>
-            <h3 class="muestra-nombre"><a href="https://vitrina-iota-ten.vercel.app/mercadito/" target="_blank" rel="noopener noreferrer">Mercadito Verde <span aria-hidden="true">↗</span></a></h3>
+            <h3 class="muestra-nombre">Mercadito Verde</h3>
             <p class="muestra-desc">Dashboard de una tienda orgánica: indicadores, comparación con el período anterior y modo oscuro.</p>
             <ul class="muestra-detalle" aria-label="Interacciones"><li>Gráficos con tooltip y vista de tabla</li><li>Rango de 7, 30 o 90 días</li><li>Tabla ordenable con búsqueda</li></ul>
           </li>
+          <li class="muestra" data-tipo="carta">
+            <div class="muestra-vista" aria-hidden="true">
+              <img src="img/vitrina/kaze.webp" width="640" height="2234" loading="lazy" alt="" />
+              <video class="clip" muted loop playsinline preload="none" aria-hidden="true"><source src="img/clips/kaze.webm" type="video/webm" /><source src="img/clips/kaze.mp4" type="video/mp4" /></video>
+            </div>
+            <p class="muestra-tipo">Carta · Sushi y cocina nikkei</p>
+            <h3 class="muestra-nombre">Kaze</h3>
+            <p class="muestra-desc">Papel washi, tinta sumi y un sello bermellón: editorial japonés con mucho aire.</p>
+            <ul class="muestra-detalle" aria-label="Interacciones"><li>Combinado que llena la bandeja pieza por pieza</li><li>Carta con filtros crudo, cocido y veggie</li><li>Omakase con lugares disponibles</li></ul>
+          </li>
+          <li class="muestra" data-tipo="carta">
+            <div class="muestra-vista" aria-hidden="true">
+              <img src="img/vitrina/polo.webp" width="640" height="1767" loading="lazy" alt="" />
+              <video class="clip" muted loop playsinline preload="none" aria-hidden="true"><source src="img/clips/polo.webm" type="video/webm" /><source src="img/clips/polo.mp4" type="video/mp4" /></video>
+            </div>
+            <p class="muestra-tipo">Carta · Heladería artesanal</p>
+            <h3 class="muestra-nombre">Polo Sur</h3>
+            <p class="muestra-desc">Pastel, redondeada y juguetona, con un pingüino de mascota.</p>
+            <ul class="muestra-detalle" aria-label="Interacciones"><li>Bochas que se apilan con el color de cada sabor</li><li>Envases con límite de sabores</li><li>Filtros sin TACC y veganos</li></ul>
+          </li>
+          <li class="muestra" data-tipo="app">
+            <div class="muestra-vista" aria-hidden="true">
+              <img src="img/vitrina/miga.webp" width="640" height="2862" loading="lazy" alt="" />
+              <video class="clip" muted loop playsinline preload="none" aria-hidden="true"><source src="img/clips/miga.webm" type="video/webm" /><source src="img/clips/miga.mp4" type="video/mp4" /></video>
+            </div>
+            <p class="muestra-tipo">App · Tortas por encargo</p>
+            <h3 class="muestra-nombre">Miga</h3>
+            <p class="muestra-desc">Pastelería editorial en rosa y chocolate, con la torta dibujada en vivo.</p>
+            <ul class="muestra-detalle" aria-label="Interacciones"><li>Configurador que dibuja la torta capa por capa</li><li>Calendario de retiro con 48 h de aviso</li><li>Seña del 50 % y pedido por WhatsApp</li></ul>
+          </li>
+          <li class="muestra" data-tipo="carta">
+            <div class="muestra-vista" aria-hidden="true">
+              <img src="img/vitrina/bunker.webp" width="640" height="2018" loading="lazy" alt="" />
+              <video class="clip" muted loop playsinline preload="none" aria-hidden="true"><source src="img/clips/bunker.webm" type="video/webm" /><source src="img/clips/bunker.mp4" type="video/mp4" /></video>
+            </div>
+            <p class="muestra-tipo">Carta · Smash burgers</p>
+            <h3 class="muestra-nombre">Bunker</h3>
+            <p class="muestra-desc">Callejera y neo-brutalista: mostaza, negro, ketchup y sombras duras.</p>
+            <ul class="muestra-detalle" aria-label="Interacciones"><li>Burger que crece capa por capa</li><li>Medidor de altura y calorías</li><li>Las de la casa cargan en el armador</li></ul>
+          </li>
+          <li class="muestra" data-tipo="app">
+            <div class="muestra-vista" aria-hidden="true">
+              <img src="img/vitrina/domingo.webp" width="640" height="2413" loading="lazy" alt="" />
+            </div>
+            <p class="muestra-tipo">App · Brunch y reservas</p>
+            <h3 class="muestra-nombre">Domingo</h3>
+            <p class="muestra-desc">Soleada y relajada, en salvia, crema y durazno.</p>
+            <ul class="muestra-detalle" aria-label="Interacciones"><li>Reserva eligiendo la mesa en el plano del salón</li><li>Carta dulce y salada</li><li>Combos de brunch para compartir</li></ul>
+          </li>
+          <li class="muestra" data-tipo="carta">
+            <div class="muestra-vista" aria-hidden="true">
+              <img src="img/vitrina/lupulo.webp" width="640" height="2160" loading="lazy" alt="" />
+              <video class="clip" muted loop playsinline preload="none" aria-hidden="true"><source src="img/clips/lupulo.webm" type="video/webm" /><source src="img/clips/lupulo.mp4" type="video/mp4" /></video>
+            </div>
+            <p class="muestra-tipo">Carta · Taproom de cerveza artesanal</p>
+            <h3 class="muestra-nombre">Lúpulo</h3>
+            <p class="muestra-desc">Etiqueta de cerveza artesanal: papel kraft, tinta negra y cobre.</p>
+            <ul class="muestra-detalle" aria-label="Interacciones"><li>Vasos con el color real de cada cerveza</li><li>Filtros por amargor y alcohol</li><li>Vuelo de degustación de 4 cervezas</li></ul>
+          </li>
+          <li class="muestra" data-tipo="landing">
+            <div class="muestra-vista" aria-hidden="true">
+              <img src="img/vitrina/raiz.webp" width="640" height="4190" loading="lazy" alt="" />
+            </div>
+            <p class="muestra-tipo">Landing · Restaurante de autor</p>
+            <h3 class="muestra-nombre">Raíz</h3>
+            <p class="muestra-desc">Alta cocina en blanco hueso y carbón, con dibujos de una sola línea.</p>
+            <ul class="muestra-detalle" aria-label="Interacciones"><li>Menú de siete pasos que se revela al bajar</li><li>Maridaje y versiones vegetariana y sin TACC</li><li>Reserva con seña</li></ul>
+          </li>
+          <li class="muestra" data-tipo="carta">
+            <div class="muestra-vista" aria-hidden="true">
+              <img src="img/vitrina/nortena.webp" width="640" height="1829" loading="lazy" alt="" />
+              <video class="clip" muted loop playsinline preload="none" aria-hidden="true"><source src="img/clips/nortena.webm" type="video/webm" /><source src="img/clips/nortena.mp4" type="video/mp4" /></video>
+            </div>
+            <p class="muestra-tipo">Carta · Empanadas salteñas y tucumanas</p>
+            <h3 class="muestra-nombre">La Norteña</h3>
+            <p class="muestra-desc">Colorida y artesanal, con guardas de aguayo hechas en CSS.</p>
+            <ul class="muestra-detalle" aria-label="Interacciones"><li>Docena mixta que llena la bandeja</li><li>Mejor precio entre docenas, medias y sueltas</li><li>Zonas de envío por barrio</li></ul>
+          </li>
         </ul>
-        <p class="vitrina-nota">Los negocios, las personas y los precios son ficticios. Pasá el mouse por una captura para recorrer la página.</p>
+        <p class="vitrina-nota">Los negocios, las personas y los precios son ficticios. Pasá el mouse por una captura para recorrer la página completa; en las que tienen un armador de pedidos, lo vas a ver armarse.</p>
       </article>
     </div>
 
@@ -532,5 +552,6 @@
   </footer>
 
   <script src="main.js"></script>
+  <script type="module" src="bola3d.js"></script>
 </body>
 </html>

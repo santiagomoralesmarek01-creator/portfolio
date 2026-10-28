@@ -15,6 +15,47 @@ botonTema?.addEventListener("click", () => {
   } catch {}
 });
 
+// Entrada: muestra "MrK" apenas está la tipografía y, si three.js llega a tiempo, corre la
+// escena 3D (intro3d.js); si no, la versión CSS. Se saltea con un clic o una tecla y sólo
+// se ve una vez por visita.
+function entrada() {
+  if (!raiz.classList.contains("con-intro")) return;
+  try {
+    sessionStorage.setItem("entrada", "1");
+  } catch {}
+  const intro = document.querySelector(".intro");
+  const espera = (ms) => new Promise((r) => setTimeout(r, ms));
+  let terminada = false;
+  const abrir = () => raiz.classList.add("intro-fin");
+  const terminar = () => {
+    if (terminada) return;
+    terminada = true;
+    abrir();
+    raiz.classList.remove("con-intro");
+  };
+  const saltear = () => {
+    raiz.classList.remove("entrada");
+    terminar();
+  };
+  const plana = () => {
+    raiz.classList.add("intro-lista");
+    setTimeout(abrir, 1300);
+    setTimeout(terminar, 1900);
+  };
+  const fuentes = Promise.race([document.fonts?.ready, espera(700)]);
+  const escena = Promise.race([import("./intro3d.js"), espera(1500).then(() => null)]).catch(() => null);
+  fuentes.then(() => raiz.classList.add("intro-texto"));
+  Promise.all([fuentes, escena]).then(([, modulo]) => {
+    if (terminada) return;
+    const ok = modulo?.correr(intro, { alSalir: () => raiz.classList.add("intro-sale"), alAbrir: abrir, alTerminar: terminar });
+    if (!ok) plana();
+  });
+  intro?.addEventListener("pointerdown", saltear, { once: true });
+  addEventListener("keydown", saltear, { once: true });
+}
+
+entrada();
+
 // Año actual.
 const anio = String(new Date().getFullYear());
 document.querySelectorAll("#year, #year-hero").forEach((el) => (el.textContent = anio));
@@ -49,7 +90,7 @@ document.querySelector(".copiar-mail")?.addEventListener("click", async (ev) => 
 
 // Aparición suave al hacer scroll (sin animación si se pidió reducir movimiento).
 function revelar() {
-  const objetivos = document.querySelectorAll(".caso-head, .vitrina, .caso-cuerpo, .muestras, .sobre");
+  const objetivos = document.querySelectorAll(".caso-head, .vitrina, .caso-cuerpo, .muestra, .sobre");
   if (!("IntersectionObserver" in window) || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   objetivos.forEach((el) => el.classList.add("reveal"));
   const io = new IntersectionObserver(
@@ -67,6 +108,34 @@ function revelar() {
 }
 
 revelar();
+
+// Clips: en las vistas con armador de pedidos, al pasar el mouse se ve el pedido armándose.
+// En el celular (sin mouse) se reproducen solos cuando quedan a la vista.
+function clips() {
+  const videos = [...document.querySelectorAll(".clip")];
+  if (!videos.length || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const caja = (v) => v.closest(".muestra, .vitrina");
+  const play = (v) => {
+    v.currentTime = 0;
+    v.play().then(() => caja(v).classList.add("en-accion")).catch(() => {});
+  };
+  const parar = (v) => {
+    caja(v).classList.remove("en-accion");
+    v.pause();
+  };
+  videos.forEach((v) => {
+    caja(v).addEventListener("pointerenter", (e) => e.pointerType === "mouse" && play(v));
+    caja(v).addEventListener("pointerleave", (e) => e.pointerType === "mouse" && parar(v));
+  });
+  if (matchMedia("(hover: hover)").matches || !("IntersectionObserver" in window)) return;
+  const io = new IntersectionObserver(
+    (entradas) => entradas.forEach((e) => (e.isIntersecting ? play(e.target) : parar(e.target))),
+    { threshold: 0.6 }
+  );
+  videos.forEach((v) => io.observe(v));
+}
+
+clips();
 
 // Recorrido: una bola cae por el riel a medida que bajás. Rebota en cada marca de
 // proyecto y toma el color de la sección en la que estás. Con "reducir movimiento"
@@ -116,6 +185,9 @@ function recorrido() {
   function pintar(estiramiento) {
     const s = 1 + estiramiento;
     bola.style.transform = `translate3d(0, ${y}px, 0) scale(${1 / Math.sqrt(s)}, ${s})`;
+    // La bola 3D (bola3d.js) dibuja lo mismo con three.js.
+    nav.estadoBola = { y, estiramiento };
+    nav.dispatchEvent(new CustomEvent("bola"));
   }
 
   function colorear(p) {
@@ -124,6 +196,7 @@ function recorrido() {
     if (i === tramoActual) return;
     tramoActual = i;
     nav.style.setProperty("--bola-color", i < 0 ? "var(--hi)" : tramos[i].color);
+    nav.dispatchEvent(new CustomEvent("color"));
     marcas.forEach((m) => m.setAttribute("aria-current", String(i >= 0 && tramos[i].marca === m)));
   }
 
@@ -144,7 +217,10 @@ function recorrido() {
     if (v > 1) {
       for (const t of tramos) {
         const ty = t.desde * alto;
-        if (antes < ty && y >= ty) v *= -0.35;
+        if (antes < ty && y >= ty) {
+          v *= -0.35;
+          nav.dispatchEvent(new CustomEvent("bote", { detail: { y: ty } }));
+        }
       }
     }
     pintar(Math.min(0.45, Math.abs(v) / 30));
